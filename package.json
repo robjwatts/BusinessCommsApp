@@ -1,0 +1,31 @@
+{
+  "name": "BusinessCommsApp",
+  "version": "1.0.0",
+  "description": "LETS COME UP WITH a CATCHY NAME",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robjwatts/BusinessCommsApp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/robjwatts/BusinessCommsApp/issues"
+  },
+  "homepage": "https://github.com/robjwatts/BusinessCommsApp#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "express-handlebars": "^3.0.0",
+    "firebase": "^3.7.2",
+    "google-auth-library": "^0.10.0",
+    "googleapis": "^18.0.0",
+    "mysql": "^2.13.0",
+    "sequelize": "^3.30.2"
+  }
+}
