@@ -41,7 +41,9 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-require("./controllers/login-controllers.js")(app);
+require("./controllers/authentication.js")(app);
+require("./routes/drive.js")(app);
+// require("./routes/calendar.js")(app);
 
 if (process.env.NODE_ENV === 'development') {
   // only use in development

@@ -2,6 +2,7 @@ const methodOverride = require("method-override");
 const express = require("express");
 const passport = require('passport');
 const db = require('../models');
+const middleware = require('../config/middleware');
 const request = require('request');
 
 module.exports = function(app) {
@@ -15,8 +16,12 @@ module.exports = function(app) {
 		res.redirect("/login");
 	});
 
-	router.get("/home", (req, res)=>{
-		res.render("index");
+	router.get("/home", function(req, res, next) {
+	  console.log('going to dashboard'); next(null);
+	}, middleware.authenticated, function(req, res) {
+	  res.render("index", 
+	    {user: req.user}
+	  );
 	})
 
 	router.get("/login", (req,res)=>{
@@ -29,7 +34,10 @@ module.exports = function(app) {
 	//   redirecting the user to google.com.  After authorization, Google
 	//   will redirect the user back to this application at /auth/google/callback
 	router.get('/auth/google',
-	  passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.login', 'https://www.googleapis.com/auth/drive', 'https://www.googleapis.com/auth/calendar', 'https://www.googleapis.com/auth/userinfo.email'] }));
+	  passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.login',
+	   'https://www.googleapis.com/auth/drive',
+	   'https://www.googleapis.com/auth/calendar',
+	   'https://www.googleapis.com/auth/userinfo.email'] }));
 
 	// GET /auth/google/callback
 	//   Use passport.authenticate() as route middleware to authenticate the
@@ -39,7 +47,7 @@ module.exports = function(app) {
 	router.get('/auth/google/callback',
 	  passport.authenticate('google', { failureRedirect: '/login' }),
 	  function(req, res) {
-	  	console.log(req);
+	 
 	    res.redirect('/home');
 	});
 
