@@ -26,10 +26,10 @@ passport.use(new GoogleStrategy({
     callbackURL: "http://localhost:8000/auth/google/callback"
   },
   function(accessToken, refreshToken, profile, done) {
-  	console.log('profile', profile);
+  	console.log('profile', profile, accessToken, refreshToken);
     db.User.findOne({where: {googleId: profile.id}}).then(function(user){
       if (!user) {
-        db.User.create({refreshToken: refreshToken, accessToken: accessToken, googleId: profile.id, name: profile.displayName, role: 'base' })
+        db.User.create({refreshToken: refreshToken, accessToken: accessToken, googleId: profile.id, name: profile.displayName, role: 'base', profilePicUrl: profile.photos[0].value })
         .then(function(user) {
           done(null, user);
         }).catch(function(err) {
