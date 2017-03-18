@@ -1,3 +1,3 @@
-CREATE DATABASE organizations_db;
+CREATE DATABASE orgDB;
 
-USE organizations_db;
+USE orgDB;

@@ -2,6 +2,12 @@
 const express = require("express");
 const exphbs = require("express-handlebars");
 const bodyParser = require("body-parser");
+const db = require('./models');
+const passport = require('passport');
+const passportConfig = require('./config/passport');
+const cookieParser = require('cookie-parser')
+const session = require('express-session');
+const errorhandler = require('errorhandler');
 
 // Create an instance of the express app.
 var app = express();
@@ -9,18 +15,42 @@ var app = express();
 // Specify the port.
 var port = process.env.PORT || 8000;
 
-// Set Handlebars as the default templating engine.
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
+app.use('/public', express.static(__dirname + '/public'));
 
-// Serve static content for the app from the "public" directory in the application directory.
-app.use(express.static(__dirname + "/public")); //DO I NEED THIS?
+app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.set('view engine', 'handlebars');
+
+app.set('port', port);
+
+// Sets up the Express app to handle data parsing
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
-require("./controllers/login_controller.js")(app);
+app.use(cookieParser())
+app.set('trust proxy', 1) // trust first proxy
 
-// Initiate the listener.
-app.listen(port);
+//need sessions to persist state of user
+app.use(session({
+  secret: '3or8h1o2h1o28u12o38j12',
+  resave: false,
+  saveUninitialized: true
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+require("./controllers/login-controllers.js")(app);
+
+if (process.env.NODE_ENV === 'development') {
+  // only use in development
+  app.use(errorhandler())
+}
+
+db.sequelize.sync({ force: true }).then(function() {
+
+  app.listen(port, function() {
+    console.log("App listening on PORT " + port);
+  });
+});
