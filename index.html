@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Business Communications</title>
+  <!-- Latest compiled and minified CSS & JS -->
+
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <link rel="stylesheet" href="public/assets/css/style.css">
+  <link rel="stylesheet" href="node_modules/bulma/css/bulma.css">
+  <script src="https://use.fontawesome.com/30475d8f78.js"></script>
+</head>
+
+<body>
+<!--Navbar-->
+<nav class="nav has-shadow is-overlay">
+  <div class="container">
+    <div class="nav-left">
+      <a class="nav-item is-tab is-hidden-mobile is-active">Home</a>
+      <a class="nav-item is-tab is-hidden-mobile features">Features</a>
+      <a class="nav-item is-tab is-hidden-mobile">About</a>
+    </div>
+    <span class="nav-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </span>
+    <div class="nav-center">
+      <a class="nav-item">
+        <!-- <img src="public/assets/img/logo.png" alt="Ascendimus logo"> -->
+      </a>
+    </div>
+    <div class="nav-right nav-menu">
+      <a class="nav-item is-tab is-hidden-tablet">Home</a>
+      <a class="nav-item is-tab is-hidden-tablet">Features</a>
+      <a class="nav-item is-tab is-hidden-tablet">Pricing</a>
+      <a class="nav-item is-tab is-hidden-tablet">About</a>
+      <a class="nav-item is-tab signup">Sign Up</a>
+      <a class="nav-item is-tab login">Log In</a>
+    </div>
+  </div>
+</nav>
+<!-- End Nav -->
+
+<!--Section 1-->
+<section id="section1">
+<!-- Begin Log In Modal -->
+  <div class="modal loginModal">
+    <div class="modal-background modalOut"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">Log In</p>
+        <button class="delete"></button>
+      </header>
+      <section class="modal-card-body">
+        <!-- Content ... -->
+        <div class="columns ">
+          <div class="column is-one-half is-offset-one-third ">
+            <form id="login-form">
+              <a class="google" >
+                <img id="login" type="submit" formaction="/auth/google" src="public/assets/img/google.png">
+              </a>
+            </form>
+          </div>
+        </div>
+        
+        <div class="columns horizontalbar">
+          <div class="column is-10 is-offset-1 is-paddingless ">
+            <hr>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Username</label>
+          <p class="control">
+            <input class="input username" type="text" placeholder="Username">
+          </p>
+        </div>
+        <br>
+        <div class="field">
+          <label class="label">Password</label>
+          <p class="control">
+            <input class="input password" type="text" placeholder="Password">
+          </p>
+        </div>
+      </section>
+      <footer class="modal-card-foot">
+        <a class="button is-success">Submit</a>
+        <a class="button canel">Cancel</a>
+      </footer>
+    </div>
+  </div>
+<!--End Modal-->
+
+<!-- Begin Sign Up Modal -->
+  <div class="modal signupModal">
+    <div class="modal-background modalOut"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">Sign Up</p>
+        <button class="delete"></button>
+      </header>
+      <section class="modal-card-body">
+        <!-- Content ... -->
+        <div class="columns ">
+          <div class="column is-one-half is-offset-one-third ">
+            <a class="google">
+              <img src="public/assets/img/google.png">
+            </a>
+          </div>
+        </div>
+        <div class="columns horizontalbar">
+          <div class="column is-10 is-offset-1 is-paddingless ">
+            <hr>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Username</label>
+          <p class="control">
+            <input class="input username" type="text" placeholder="Username">
+          </p>
+        </div>
+      
+        <div class="field">
+          <label class="label">Email</label>
+          <p class="control">
+            <input class="input email" type="text" placeholder="Password">
+          </p>
+        </div>
+        
+        <div class="field">
+          <label class="label">Password</label>
+          <p class="control">
+            <input class="input password" type="text" placeholder="Password">
+          </p>
+        </div>
+        
+         <div class="field">
+          <label class="label">Re-Enter Password</label>
+          <p class="control">
+            <input class="input passwordConfirm" type="text" placeholder="Password">
+          </p>
+        </div>
+      </section>
+      <footer class="modal-card-foot">
+        <a class="button is-success">Submit</a>
+        <a class="button canel">Cancel</a>
+      </footer>
+    </div>
+  </div>
+<!--End Modal-->
+<!--Main Content-->
+  <div class="parallax">
+    <img class="logo" src="public/assets/img/logo-2.png">
+  </div>
+</section>
+<!--End Section-->
+
+
+<!--Section 2-->
+<section id="section2">
+  <div class="wrapper">
+    <div class="tile is-ancestor">
+      <div class="tile is-4 is-vertical is-parent">
+          <article class="tile is-child has-text-centered ">
+            <svg width="133px" height="132px" viewBox="47 0 133 132" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+                <desc>Created with Sketch.</desc>
+                <defs></defs>
+                <g id="ic-chat-48px" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(47.608399, 0.000000)">
+                    <g id="Group">
+                        <path class="icon" d="M109.444597,10.9444597 L21.8889193,10.9444597 C15.8421053,10.9444597 10.999182,15.8421053 10.999182,21.8889193 L10.9444597,120.389056 L32.833379,98.5001369 L109.444597,98.5001369 C115.49141,98.5001369 120.389056,93.6024912 120.389056,87.5556772 L120.389056,21.8889193 C120.389056,15.8421053 115.49141,10.9444597 109.444597,10.9444597 Z M32.833379,49.2500684 L98.5001369,49.2500684 L98.5001369,60.1945281 L32.833379,60.1945281 L32.833379,49.2500684 Z M76.6112176,76.6112176 L32.833379,76.6112176 L32.833379,65.6667579 L76.6112176,65.6667579 L76.6112176,76.6112176 Z M98.5001369,43.7778386 L32.833379,43.7778386 L32.833379,32.833379 L98.5001369,32.833379 L98.5001369,43.7778386 Z" id="Shape" fill="#000000" fill-rule="nonzero"></path>
+                        <polygon id="Shape" points="0 0 131.333516 0 131.333516 131.333516 0 131.333516"></polygon>
+                    </g>
+                </g>
+            </svg>
+            <h3 class="title is-3">Online Messaging</h3>
+            <p>lorem upsum</p>
+          </article>
+          <br>
+          <br>
+          <article class="tile is-child has-text-centered ">
+            <svg width="133px" height="132px" viewBox="47 0 133 132" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+                <desc>Created with Sketch.</desc>
+                <defs></defs>
+                <g id="ic-call-48px" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(47.608399, 0.000000)">
+                    <g id="Group">
+                        <polygon id="Shape" points="0 0 131.333516 0 131.333516 131.333516 0 131.333516"></polygon>
+                        <path class="icon" d="M36.2535226,59.072721 C44.1335335,74.5591314 56.8017456,87.2273434 72.3155172,95.1073544 L84.3544228,83.0410876 C85.859286,81.5362244 88.0208168,81.098446 89.908736,81.7003913 C96.0376335,83.7251163 102.63167,84.8195623 109.444597,84.8195623 C112.481684,84.8195623 114.916826,87.2547046 114.916826,90.2917921 L114.916826,109.444597 C114.916826,112.481684 112.481684,114.916826 109.444597,114.916826 C58.0603585,114.916826 16.4166895,73.2731574 16.4166895,21.8889193 C16.4166895,18.8518318 18.8791929,16.4166895 21.8889193,16.4166895 L41.0417237,16.4166895 C44.0788113,16.4166895 46.5139535,18.8518318 46.5139535,21.8889193 C46.5139535,28.7018454 47.6083995,35.2958824 49.6331245,41.4247798 C50.2350698,43.3126991 49.7972914,45.4742299 48.2924282,46.9790931 L36.2535226,59.072721 L36.2535226,59.072721 Z" id="Shape" fill="#000000" fill-rule="nonzero"></path>
+                    </g>
+                </g>
+            </svg>
+            <h3 class="title is-3">Video Conferences</h3>
+            <p>lorem upsum</p>
+          </article>
+      </div>
+
+
+      <div class="tile is-4 is-vertical is-parent">
+        <article class="tile is-child has-text-centered ">     
+          <svg width="133px" height="132px" viewBox="47 0 133 132" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+              <desc>Created with Sketch.</desc>
+              <defs></defs>
+              <g id="ic-mail-outline-24px" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(47.608399, 0.000000)">
+                  <g id="Group">
+                      <polygon id="Shape" points="0 0 131.333516 0 131.333516 131.333516 0 131.333516"></polygon>
+                      <path class="icon" d="M109.444597,21.8889193 L21.8889193,21.8889193 C15.8694665,21.8889193 10.999182,26.8139261 10.999182,32.833379 L10.9444597,98.5001369 C10.9444597,104.51959 15.8694665,109.444597 21.8889193,109.444597 L109.444597,109.444597 C115.464049,109.444597 120.389056,104.51959 120.389056,98.5001369 L120.389056,32.833379 C120.389056,26.8139261 115.464049,21.8889193 109.444597,21.8889193 Z M109.444597,98.5001369 L21.8889193,98.5001369 L21.8889193,43.7778386 L65.6667579,71.1389877 L109.444597,43.7778386 L109.444597,98.5001369 Z M65.6667579,60.1945281 L21.8889193,32.833379 L109.444597,32.833379 L65.6667579,60.1945281 Z" id="Shape" fill="#000000" fill-rule="nonzero"></path>
+                  </g>
+              </g>
+          </svg>
+          <h3 class="title is-3">Email</h3>
+          <p>lorem upsum</p>
+        </article>
+        <br>
+        <br>
+         <article class="tile is-child has-text-centered ">     
+          <svg width="133px" height="132px" viewBox="47 0 133 132" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+              <desc>Created with Sketch.</desc>
+              <defs></defs>
+              <g id="ic-people-outline-48px" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(47.608399, 0.000000)">
+                  <g id="Group">
+                      <polygon id="Shape" points="0 0 131.333516 0 131.333516 131.333516 0 131.333516"></polygon>
+                      <path class="icon" d="M90.2917921,71.1389877 C83.6977552,71.1389877 73.4646854,72.9721847 65.6667579,76.6385787 C57.8688304,72.9721847 47.6357606,71.1389877 41.0417237,71.1389877 C29.1943461,71.1389877 5.47222983,77.0763571 5.47222983,88.9237347 L5.47222983,103.972367 L125.861286,103.972367 L125.861286,88.9237347 C125.861286,77.0763571 102.13917,71.1389877 90.2917921,71.1389877 Z M68.4028728,95.764022 L13.6805746,95.764022 L13.6805746,88.9237347 C13.6805746,85.9960917 27.6894829,79.3473325 41.0417237,79.3473325 C54.3939645,79.3473325 68.4028728,85.9960917 68.4028728,88.9237347 L68.4028728,95.764022 Z M117.652941,95.764022 L76.6112176,95.764022 L76.6112176,88.9237347 C76.6112176,86.4338701 75.5167716,84.217617 73.7656581,82.2476143 C78.6085815,80.6059453 84.5185897,79.3473325 90.2917921,79.3473325 C103.644033,79.3473325 117.652941,85.9960917 117.652941,88.9237347 L117.652941,95.764022 Z M41.0417237,65.6667579 C51.6304884,65.6667579 60.1945281,57.0753571 60.1945281,46.5139535 C60.1945281,35.95255 51.6304884,27.3611491 41.0417237,27.3611491 C30.4803201,27.3611491 21.8889193,35.95255 21.8889193,46.5139535 C21.8889193,57.0753571 30.4803201,65.6667579 41.0417237,65.6667579 Z M41.0417237,35.5694939 C47.0885377,35.5694939 51.9861833,40.4671396 51.9861833,46.5139535 C51.9861833,52.5607675 47.0885377,57.4584132 41.0417237,57.4584132 C34.9949097,57.4584132 30.097264,52.5607675 30.097264,46.5139535 C30.097264,40.4671396 34.9949097,35.5694939 41.0417237,35.5694939 Z M90.2917921,65.6667579 C100.880557,65.6667579 109.444597,57.0753571 109.444597,46.5139535 C109.444597,35.95255 100.880557,27.3611491 90.2917921,27.3611491 C79.7303886,27.3611491 71.1389877,35.95255 71.1389877,46.5139535 C71.1389877,57.0753571 79.7303886,65.6667579 90.2917921,65.6667579 Z M90.2917921,35.5694939 C96.3386061,35.5694939 101.236252,40.4671396 101.236252,46.5139535 C101.236252,52.5607675 96.3386061,57.4584132 90.2917921,57.4584132 C84.2449782,57.4584132 79.3473325,52.5607675 79.3473325,46.5139535 C79.3473325,40.4671396 84.2449782,35.5694939 90.2917921,35.5694939 Z" id="Shape" fill="#000000" fill-rule="nonzero"></path>
+                  </g>
+              </g>
+          </svg>
+          <h3 class="title is-3">Connect with Others</h3>
+          <p>lorem upsum</p>
+        </article>
+      </div>
+
+      <div class="tile is-4 is-vertical is-parent">
+        <article class="tile is-child has-text-centered ">     
+          <svg width="133px" height="132px" viewBox="47 0 133 132" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+              <desc>Created with Sketch.</desc>
+              <defs></defs>
+              <g id="ic-business-48px" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(47.608399, 0.000000)">
+                  <g id="Group">
+                      <polygon id="Shape" points="0 0 131.333516 0 131.333516 131.333516 0 131.333516"></polygon>
+                      <path class="icon" d="M65.6667579,38.3056088 L65.6667579,16.4166895 L10.9444597,16.4166895 L10.9444597,114.916826 L120.389056,114.916826 L120.389056,38.3056088 L65.6667579,38.3056088 Z M32.833379,103.972367 L21.8889193,103.972367 L21.8889193,93.027907 L32.833379,93.027907 L32.833379,103.972367 Z M32.833379,82.0834474 L21.8889193,82.0834474 L21.8889193,71.1389877 L32.833379,71.1389877 L32.833379,82.0834474 Z M32.833379,60.1945281 L21.8889193,60.1945281 L21.8889193,49.2500684 L32.833379,49.2500684 L32.833379,60.1945281 Z M32.833379,38.3056088 L21.8889193,38.3056088 L21.8889193,27.3611491 L32.833379,27.3611491 L32.833379,38.3056088 Z M54.7222983,103.972367 L43.7778386,103.972367 L43.7778386,93.027907 L54.7222983,93.027907 L54.7222983,103.972367 Z M54.7222983,82.0834474 L43.7778386,82.0834474 L43.7778386,71.1389877 L54.7222983,71.1389877 L54.7222983,82.0834474 Z M54.7222983,60.1945281 L43.7778386,60.1945281 L43.7778386,49.2500684 L54.7222983,49.2500684 L54.7222983,60.1945281 Z M54.7222983,38.3056088 L43.7778386,38.3056088 L43.7778386,27.3611491 L54.7222983,27.3611491 L54.7222983,38.3056088 Z M109.444597,103.972367 L65.6667579,103.972367 L65.6667579,93.027907 L76.6112176,93.027907 L76.6112176,82.0834474 L65.6667579,82.0834474 L65.6667579,71.1389877 L76.6112176,71.1389877 L76.6112176,60.1945281 L65.6667579,60.1945281 L65.6667579,49.2500684 L109.444597,49.2500684 L109.444597,103.972367 Z M98.5001369,60.1945281 L87.5556772,60.1945281 L87.5556772,71.1389877 L98.5001369,71.1389877 L98.5001369,60.1945281 Z M98.5001369,82.0834474 L87.5556772,82.0834474 L87.5556772,93.027907 L98.5001369,93.027907 L98.5001369,82.0834474 Z" id="Shape" fill="#000000" fill-rule="nonzero"></path>
+                  </g>
+              </g>
+          </svg>
+          <h3 class="title is-3">Company Events</h3>
+          <p>lorem upsum</p>
+        </article>
+        <br>
+        <br>
+        <article class="tile is-child has-text-centered ">     
+          <svg width="133px" height="132px" viewBox="47 0 133 132" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+              <desc>Created with Sketch.</desc>
+              <defs></defs>
+              <g id="ic-event-available-48px" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(47.608399, 0.000000)">
+                  <g id="Group">
+                      <polygon id="Shape" points="0 0 131.333516 0 131.333516 131.333516 0 131.333516"></polygon>
+                      <path class="icon" d="M90.455959,60.5228619 L84.6553954,54.7222983 L57.9509139,81.4267798 L46.3497866,69.8256526 L40.549223,75.6262162 L57.9509139,93.027907 L90.455959,60.5228619 L90.455959,60.5228619 Z M103.972367,16.4166895 L98.5001369,16.4166895 L98.5001369,5.47222983 L87.5556772,5.47222983 L87.5556772,16.4166895 L43.7778386,16.4166895 L43.7778386,5.47222983 L32.833379,5.47222983 L32.833379,16.4166895 L27.3611491,16.4166895 C21.3143352,16.4166895 16.4714118,21.3143352 16.4714118,27.3611491 L16.4166895,103.972367 C16.4166895,110.019181 21.3143352,114.916826 27.3611491,114.916826 L103.972367,114.916826 C110.019181,114.916826 114.916826,110.019181 114.916826,103.972367 L114.916826,27.3611491 C114.916826,21.3143352 110.019181,16.4166895 103.972367,16.4166895 Z M103.972367,103.972367 L27.3611491,103.972367 L27.3611491,43.7778386 L103.972367,43.7778386 L103.972367,103.972367 Z" id="Shape" fill="#000000" fill-rule="nonzero"></path>
+                  </g>
+              </g>
+          </svg>
+          <h3 class="title is-3">Calendar</h3>
+          <p>lorem upsum</p>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <div class="is-fullwidth sect2Foot has-text-centered">
+  <a class="sect2btn">
+      <svg width="80px" height="80px" viewBox="1104 74 80 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+          <desc>Created with Sketch.</desc>
+          <defs></defs>
+          <g id="ic-expand-more-36px" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(1104.000000, 74.000000)">
+              <g id="Group">
+                  <polygon id="Shape" fill="#23272b" fill-rule="nonzero" points="55.2888889 28.6222222 40 43.9111111 24.7111111 28.6222222 20 33.3333333 40 53.3333333 60 33.3333333"></polygon>
+                  <polygon id="Shape" points="0 0 80 0 80 80 0 80"></polygon>
+              </g>
+          </g>
+      </svg>
+    </a>
+  </div>
+</section>
+<!--End Section-->
+
+<!--Section 3-->
+<section id="section3">
+  
+  <div class="tile is-ancestor">
+    <div class="tile is-vertical is-parent">
+      <!-- 1/3 -->
+      <article class="tile is-child has-text-centered">
+         <img class="review" src="public/assets/img/feature1.png">
+         <br>
+         <br>
+         <br>
+         <p>Fusce tristique mattis purus, vitae congue dui mollis in. Suspendisse quam eros, ornare ut porttitor vel, posuere eu magna. Praesent rhoncus purus dolor, vitae volutpat libero malesuada non. Phasellus non dignissim arcu, eu posuere urna.</p>
+      </article>
+    </div>
+    <div class="tile is-vertical is-parent has-text-centered">
+      <!-- This tile will take the rest: 2/3 -->
+      <article class="tile is-child">
+         <img class="review" src="public/assets/img/feature2.png">
+         <br>
+         <br>
+         <br>
+         <p>Fusce tristique mattis purus, vitae congue dui mollis in. Suspendisse quam eros, ornare ut porttitor vel, posuere eu magna. Praesent rhoncus purus dolor, vitae volutpat libero malesuada non. Phasellus non dignissim arcu, eu posuere urna.</p>
+      </article>
+    </div>
+    <div class="tile is-vertical is-parent has-text-centered">
+      <!-- This tile will take the rest: 2/3 -->
+      <article class="tile is-child">
+         <img class="review" src="public/assets/img/feature3.png">
+         <br>
+         <br>
+         <br>
+         <p>Fusce tristique mattis purus, vitae congue dui mollis in. Suspendisse quam eros, ornare ut porttitor vel, posuere eu magna. Praesent rhoncus purus dolor, vitae volutpat libero malesuada non. Phasellus non dignissim arcu, eu posuere urna.</p>
+      </article>
+    </div>
+  </div>
+  
+
+  <div class="is-fullwidth sect3Foot"></div>
+</section>
+<!--End Section-->
+
+<!-- SCRIPTS -->
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+  <script type="text/javascript" src="public/assets/js/main.js"></script>
+</body>
+</html>
