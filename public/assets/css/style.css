@@ -168,6 +168,10 @@ a.nav-item.is-tab.is-active {
   font-family:bebas;
 }
 
+.tabs li.is-active{
+  border-bottom:solid 4px;
+}
+
 .panel{
   width:300px;
   margin-left:10px;

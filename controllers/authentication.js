@@ -13,20 +13,24 @@ module.exports = function(app) {
 	router.use(methodOverride("_method"));
 
 	router.get("/", (req, res)=>{
-		res.redirect("/login");
-	});
+			res.redirect("/home");
+		});
 
-	router.get("/home", function(req, res, next) {
-	  console.log('going to dashboard'); next(null);
-	}, middleware.authenticated, function(req, res) {
-	  res.render("index", 
-	    {user: req.user}
-	  );
-	})
+	router.get("/home", (req,res)=>{
+			res.render("index");
+		});
 
-	router.get("/login", (req,res)=>{
-		res.render("login");
-	});
+	
+
+	// router.get("/home", function(req, res, next) {
+	//   console.log('going to dashboard'); next(null);
+	// }, middleware.authenticated, function(req, res) {
+	//   res.render("index", 
+	//     {user: req.user}
+	//   );
+	// })
+
+	
 
 	// GET /auth/google
 	//   Use passport.authenticate() as route middleware to authenticate the
