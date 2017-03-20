@@ -1,21 +1,29 @@
-const request = require('request');
-const passport = require('passport');
+// const request = require('request');
+// const passport = require('passport');
+const google = require('googleapis');
 
-function getAllDriveData(req, res) {
-	
-	request.get('https://www.googleapis.com/drive/v3/about/', {fields: {
-		access_token: req.user.accessToken
-	}}, function (error, response, body) {
-		// res.json(response);
 
-		if (error) {
-			res.sendStatus(500).res.json(error);
-		} else {
-			var data = JSON.parse(body);
-    		res.json(data);
-		}
-    });
+function getAllDriveData(req, res, user) {
 
+  	var service = google.drive('v3');
+  	service.files.list({
+    	// auth: user.accessToken,
+    	pageSize: 10,
+    	fields: "nextPageToken, files(id, name)"
+  	}, function(err, response) {
+    	if (err) {
+      		res.json(err);
+      		return;
+    	}
+    	var files = response.files;
+    	if (files.length == 0) {
+      		res.json([{}]);
+    	} else {
+      		res.json(files);
+        }
+  	});
 }
+	
+
 
 exports.getAllDriveData = getAllDriveData;
