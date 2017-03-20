@@ -125,6 +125,29 @@ body {
   max-height: 250px;
 }
 
+.blogTile, .tweetTile, .onlineTile, .eventTile {
+  border: 2px solid black;
+  background-color:#464f56;
+  color:white;
+}
+
+.calendarCont{
+  border:2px gray solid;
+  height: 550px;
+}
+
+.chatCont{
+  height: 550px;
+  width:500px;
+  margin-right:10px;
+}
+
+.google {
+  padding: 0px;
+  border: none;
+  background-color:white;
+}
+
 /*/updated bulma css/*/
 .tabs li.is-active a {
   border-bottom-color: #58636c;
@@ -139,4 +162,13 @@ body {
 a.nav-item.is-tab.is-active {   
   border-bottom: #00d1b2;
   color: #00d1b2;
+}
+
+.tabs li{
+  font-family:bebas;
+}
+
+.panel{
+  width:300px;
+  margin-left:10px;
 }
