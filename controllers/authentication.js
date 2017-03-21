@@ -13,13 +13,28 @@ module.exports = function(app) {
 	router.use(methodOverride("_method"));
 
 	router.get("/", (req, res)=>{
-			res.render("index");
-		});
+			res.render("index")
+	});
 
-	router.get("/", function(req, res, next) {
+	router.get("/calendar", (req, res)=>{
+			res.render("userCalendar")
+	});
+
+	router.get("/chat", (req, res)=>{
+			res.render("userChat")
+	});
+
+	router.get("/documents", (req, res)=>{
+			res.render("userDocuments")
+	});
+
+
+	
+
+	router.get("/home", function(req, res, next) {
 	  console.log('going to dashboard'); next(null);
 	}, middleware.authenticated, function(req, res) {
-	  res.render("index", 
+	  res.render("userHome", 
 	    {user: req.user}
 	  );
 	})
@@ -43,7 +58,7 @@ module.exports = function(app) {
 	//   login page.  Otherwise, the primary route function function will be called,
 	//   which, in this example, will redirect the user to the home page.
 	router.get('/auth/google/callback',
-	  passport.authenticate('google', { failureRedirect: '/' }),
+	  passport.authenticate('google', { failureRedirect: '/login' }),
 	  function(req, res) {
 	 
 	    res.redirect('/home');
