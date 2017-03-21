@@ -1,3 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Business Communications</title>
+  <!-- Latest compiled and minified CSS & JS -->
+
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <link rel="stylesheet" href="public/assets/css/style.css">
+  <link rel="stylesheet" href="node_modules/bulma/css/bulma.css">
+  <script src="https://use.fontawesome.com/30475d8f78.js"></script>
+</head>
+
+<body>
 <!--Navbar-->
 <nav class="nav has-shadow is-overlay">
   <div class="container">
@@ -33,7 +47,7 @@
 <!-- Begin Log In Modal -->
   <div class="modal loginModal">
     <div class="modal-background modalOut"></div>
-    <div class="modal-card">
+    <div class="modal-content">
       <header class="modal-card-head">
         <p class="modal-card-title">Log In</p>
         <button class="delete"></button>
@@ -43,7 +57,7 @@
         <div class="columns ">
           <div class="column is-one-half is-offset-one-third ">
             <form id="login-form">
-              <button class="google" id="login" type="submit" formaction="/auth/google"><img src="public/assets/img/google.png"></button>
+              <button class="google" type="submit" formaction="/api/drive"><img src="public/assets/img/google.png"></button>
             </form>
           </div>
         </div>
@@ -87,7 +101,7 @@
         <div class="columns ">
           <div class="column is-one-half is-offset-one-third ">
             <form id="login-form">
-              <button class="google" type="submit" formaction="/auth/google"><img src="public/assets/img/google.png"></button>
+              <button class="google" type="submit" formaction="/api/drive"><img src="public/assets/img/google.png"></button>
             </form>
           </div>
         </div>
@@ -98,24 +112,28 @@
         </div>
 
         <div class="field">
+          <label class="label">Username</label>
           <p class="control">
             <input class="input username" type="text" placeholder="Username">
           </p>
         </div>
       
         <div class="field">
+          <label class="label">Email</label>
           <p class="control">
             <input class="input email" type="text" placeholder="Password">
           </p>
         </div>
         
         <div class="field">
+          <label class="label">Password</label>
           <p class="control">
             <input class="input password" type="text" placeholder="Password">
           </p>
         </div>
         
          <div class="field">
+          <label class="label">Re-Enter Password</label>
           <p class="control">
             <input class="input passwordConfirm" type="text" placeholder="Password">
           </p>
@@ -306,3 +324,11 @@
   <div class="is-fullwidth sect3Foot"></div>
 </section>
 <!--End Section-->
+
+<!-- SCRIPTS -->
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+  <script type="text/javascript" src="public/assets/js/main.js"></script>
+</body>
+</html>

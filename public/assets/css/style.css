@@ -1,0 +1,196 @@
+@font-face {
+    font-family: leixo;
+    src: url(leixo.ttf);
+}
+
+@font-face {
+    font-family: basic;
+    src: url(basictitlefont.ttf);
+}
+
+@font-face {
+    font-family: bebas;
+    src: url(BebasNeue.otf);
+}
+
+body {
+	background-color: white;
+}
+
+.title {
+  font-family:bebas;
+
+}
+
+#section1 {
+  width: 100%;
+  padding: 0 7%;
+  display: table;
+  margin: 0;
+  max-width: none;
+  height: 100vh;
+}
+
+.foot {
+    position: fixed;
+    bottom: 0;
+    background-color:#b1c7d8;
+    height:40px;
+    width:100%;
+    margin: 0 -7%;
+}
+
+.sect3Foot{
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 70;
+  height:30px;
+  background-color: #464f56;
+}
+
+#section2 {
+  width: 100%;
+  padding: 0 7%;
+  display: table;
+  margin: 0;
+  max-width: none;
+  height: 107vh;
+  position:relative;
+}
+
+.sect2Foot{
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 70;
+  height:80px;
+  background-color: transparent;
+  margin-bottom:50px;
+}
+
+
+#section3 {
+  width: 100%;
+  padding: 0 7%;
+  display: table;
+  margin: 0;
+  max-width: none;
+  height: 93vh;
+  position:relative;
+}
+
+
+
+.parallax { 
+  background-image: url("../img/team.jpg");
+  height: 100%; 
+	margin: 0 -10%;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position:relative;
+}
+
+.wrapper {
+ 	margin-top:7%;
+}
+
+.review {
+    display: block;
+    margin-left: auto;
+    margin-right: auto 
+}
+
+.logo {
+	position:absolute;
+	margin-left:150px;
+	margin-top:18%;
+  height: auto; 
+  width: auto; 
+  max-width: 700px;
+}
+
+.icon {
+  fill :#464f56;
+}
+
+.review{
+  height: auto; 
+  width: auto; 
+  max-width: 250px;
+  max-height: 250px;
+}
+
+.blogTile, .tweetTile, .onlineTile, .eventTile {
+  border: 2px solid black;
+  background-color:#464f56;
+  color:white;
+}
+
+.Content {
+  height:275px;
+  overflow:auto;
+}
+
+.calendarCont{
+  border:2px gray solid;
+  height: 550px;
+}
+
+.chatCont{
+  height: 550px;
+  width:500px;
+  margin-right:10px;
+}
+
+.google {
+  padding: 0px;
+  border: none;
+  background-color:white;
+}
+
+.is-clicked{
+  color:red;
+}
+
+/*updated bulma css
+*/
+.tabs li.is-active a {
+  border-bottom-color: #58636c;
+  color: #58636c;
+}
+
+.modal-background {
+  background-color: rgba(10, 10, 10, 0.86);
+}
+
+.nav-item a.is-tab.is-active,
+a.nav-item.is-tab.is-active {   
+  border-bottom: #00d1b2;
+  color: #00d1b2;
+}
+
+.tabs li{
+  font-family:bebas;
+}
+
+.tabs li.is-active{
+  border-bottom:solid 4px;
+}
+
+.panel{
+  width:300px;
+  margin-left:10px;
+}
+
+.modal-content {
+ width:100px;
+}
+
+.title:not(:last-child) {
+    margin-bottom: 0;
+}
