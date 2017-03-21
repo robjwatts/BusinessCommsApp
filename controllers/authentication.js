@@ -19,7 +19,9 @@ module.exports = function(app) {
 	router.get("/home", function(req, res, next) {
 	  console.log('going home'); next(null);
 	}, middleware.authenticated, function(req, res, next) {
-		serviceAccount.getServiceAccessToken(); next(null); }, function(req, res, next) {
+		//do something with service account here
+		next(null); 
+	}, function(req, res, next) {
 	  	res.render("index", {user: req.user});
 	});
 
