@@ -36,6 +36,8 @@
     "passport": "^0.3.2",
     "passport-google-oauth": "^1.0.0",
     "request": "^2.81.0",
-    "sequelize": "^3.30.2"
+    "sequelize": "^3.30.2",
+    "dotenv": "^1.2.0",
+    "twilio": "^2.9.2"
   }
 }
