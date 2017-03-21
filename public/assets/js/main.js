@@ -21,7 +21,7 @@ $( ".is-success, .delete" ).click(function() {
 });
 
 
-
+//Scrolls page
 $(".features").click(function(){
 	console.log("clicked")
 	$('html,body').animate({
@@ -38,4 +38,32 @@ $(".sect2btn").click(function(){
     },
     'slow');
       
+});
+
+//Tweets formatting
+$( ".reply" ).click(function() {
+	if ($(".reply").hasClass("is-clicked")){
+		$( ".reply" ).removeClass( "is-clicked" );
+	} else {
+		$( ".reply" ).addClass( "is-clicked" );
+		console.log("clicked")
+	}		
+});
+
+$( ".heart" ).click(function() {
+	if ($(".heart").hasClass("is-clicked")){
+		$( ".heart" ).removeClass( "is-clicked" );
+	} else {
+		$( ".heart" ).addClass( "is-clicked" );
+		console.log("clicked")
+	}		
+});
+
+$( ".retweet" ).click(function() {
+	if ($(".retweet").hasClass("is-clicked")){
+		$( ".retweet" ).removeClass( "is-clicked" );
+	} else {
+		$( ".retweet" ).addClass( "is-clicked" );
+		console.log("clicked")
+	}		
 });

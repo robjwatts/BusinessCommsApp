@@ -131,6 +131,11 @@ body {
   color:white;
 }
 
+.Content {
+  height:275px;
+  overflow:auto;
+}
+
 .calendarCont{
   border:2px gray solid;
   height: 550px;
@@ -146,6 +151,10 @@ body {
   padding: 0px;
   border: none;
   background-color:white;
+}
+
+.is-clicked{
+  color:red;
 }
 
 /*/updated bulma css/*/
@@ -179,5 +188,8 @@ a.nav-item.is-tab.is-active {
 
 .modal-content {
  width:100px;
+}
 
+.title:not(:last-child) {
+    margin-bottom: 0;
 }
