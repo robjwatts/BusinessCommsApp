@@ -1,4 +1,5 @@
 /node_modules
 .DS_Store
 /config/firebase.js
-/config/client_secret.json
+/config/keys.js
+/config/ascendimus.json

@@ -3,6 +3,7 @@ const express = require("express");
 const passport = require('passport');
 const db = require('../models');
 const middleware = require('../config/middleware');
+const serviceAccount = require('../apis/gsuite-service-account.js');
 
 module.exports = function(app) {
 
@@ -17,11 +18,10 @@ module.exports = function(app) {
 
 	router.get("/home", function(req, res, next) {
 	  console.log('going home'); next(null);
-	}, middleware.authenticated, function(req, res) {
-	  res.render("index", 
-	    {user: req.user}
-	  );
-	})
+	}, middleware.authenticated, function(req, res, next) {
+		serviceAccount.getServiceAccessToken(); next(null); }, function(req, res, next) {
+	  	res.render("index", {user: req.user});
+	});
 
 	router.get("/login", (req,res)=>{
 		res.render("login");
