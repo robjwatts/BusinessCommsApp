@@ -16,6 +16,7 @@ var app = express();
 var port = process.env.PORT || 8000;
 
 app.use('/public', express.static(__dirname + '/public'));
+app.use('/node_modules', express.static(__dirname + '/node_modules'));
 
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
