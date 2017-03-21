@@ -2,7 +2,6 @@ const keys = require("../config/keys.js");
 const jwt = require('jsonwebtoken');
 const request = require("request");
 
-
 //will create JWT to send to GOOGLE and receive back access token
 function createJWT() {
 
@@ -22,7 +21,7 @@ function createJWT() {
 
 	//create space delimited string of service account scopes
 
-	//scopes as array, so can be easily modified
+	//first, save scopes as array, so can be easily modified
 	const servAccScopes = [
 		'https://www.googleapis.com/auth/drive',
 		'https://www.googleapis.com/auth/drive.readonly',
@@ -55,7 +54,7 @@ function createJWT() {
 		'https://www.googleapis.com/auth/youtube.upload'
 	];
 
-	//join scopes into a string separated by a space
+	//join scopes into a string separated by a space to be encrypted and signed
 	var scopes = servAccScopes.join(" ");
 
 	//store basic Claim Set information as an object
@@ -115,6 +114,7 @@ function getAccessToken(jsonWebToken) {
 				//think through error handling
 				reject(err);
 			} else {
+				//body includes access_token, token_type, expires_in for calling API
 				resolve(body);
 			}
 		});
