@@ -43,7 +43,7 @@ app.use(passport.session());
 
 require("./controllers/authentication.js")(app);
 require("./routes/drive.js")(app);
-// require("./routes/calendar.js")(app);
+require("./routes/calendar.js")(app);
 
 if (process.env.NODE_ENV === 'development') {
   // only use in development

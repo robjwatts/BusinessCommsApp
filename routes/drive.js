@@ -12,8 +12,10 @@ module.exports = function(app) {
 	
 	router.use(methodOverride("_method"));
 
+	//requires that all endpoints after log-in require user to be logged in
 	router.use(middleware.authenticated);
 
+	//for now will send JSON to browser with user's drive data
 	router.get("/api/drive", function(req, res, next) {
 		console.log('getting drive data'); next(null);
 		}, function(req, res, next) {
@@ -23,6 +25,3 @@ module.exports = function(app) {
 	app.use("/", router);
 
 }
-
-//******** GOOGLE DRIVE API FUNCTIONS ********//
-
