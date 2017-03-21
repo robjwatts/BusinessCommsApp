@@ -2,6 +2,7 @@ const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 const db = require('../models');
 const request = require('request');
+const keys = require('./keys.js');
 
 
 passport.serializeUser(function(user, done) {
@@ -22,8 +23,8 @@ passport.deserializeUser(function(user, done) {
 //   credentials (in this case, a token, tokenSecret, and Google profile), and
 //   invoke a callback with a user object.
 passport.use(new GoogleStrategy({
-    clientID: process.env.GOOGLE_CLIENT_ID || '705365889579-2s1out4g9bppocjs9kjrao1si22q71dt.apps.googleusercontent.com',
-    clientSecret: process.env.GOOGLE_CLIENT_SECRET || 'SYr0asu1b3isKMx5jxm0zvmZ',
+    clientID: process.env.GOOGLE_CLIENT_ID,
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     callbackURL: "http://localhost:8000/auth/google/callback"
   },
   function(accessToken, refreshToken, profile, done) {
