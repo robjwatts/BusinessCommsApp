@@ -176,3 +176,8 @@ a.nav-item.is-tab.is-active {
   width:300px;
   margin-left:10px;
 }
+
+.modal-content {
+ width:100px;
+
+}
