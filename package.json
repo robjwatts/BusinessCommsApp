@@ -30,11 +30,14 @@
     "firebase": "^3.7.2",
     "google-auth-library": "^0.10.0",
     "googleapis": "^18.0.0",
+    "jsonwebtoken": "^7.3.0",
     "method-override": "^2.3.7",
     "mysql": "^2.13.0",
     "passport": "^0.3.2",
     "passport-google-oauth": "^1.0.0",
     "request": "^2.81.0",
-    "sequelize": "^3.30.2"
+    "sequelize": "^3.30.2",
+    "dotenv": "^1.2.0",
+    "twilio": "^2.9.2"
   }
 }

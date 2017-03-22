@@ -1,21 +1,28 @@
 const request = require('request');
-const passport = require('passport');
+const google = require('googleapis');
+const keys = require("../config/keys.js");
 
-function getAllDriveData(req, res) {
-	
-	request.get('https://www.googleapis.com/drive/v3/about/', {fields: {
-		access_token: req.user.accessToken
-	}}, function (error, response, body) {
-		// res.json(response);
 
-		if (error) {
-			res.sendStatus(500).res.json(error);
-		} else {
-			var data = JSON.parse(body);
-    		res.json(data);
-		}
-    });
+function listAllDriveFiles(req, res, user) {
 
+    var url = 'https://www.googleapis.com/drive/v3/files';
+    var properties = {
+      key: process.env.GOOGLE_API_KEY,
+      access_token: user.accessToken
+    }
+
+    request({url: url, qs: properties}, function (e, r, files){
+    
+    if(e) {
+      res.json(JSON.parse(e));
+    } else {
+      res.json(JSON.parse(files));
+    }
+  });
 }
 
-exports.getAllDriveData = getAllDriveData;
+function listTeamDrive(req, res, user) {
+
+}
+	
+exports.listAllDriveFiles = listAllDriveFiles;

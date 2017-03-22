@@ -63,6 +63,16 @@
             </span>
           </p>
         </div>
+        <!--trying to add fields in the chat page for preview cam, name room, and enter-->
+         <div class="panel-block">
+          <p class="control has-icon">
+            <input class="input is-small" type="text" placeholder="can you see this?">
+            <span class="icon is-small">
+              <i class="fa fa-search"></i>
+            </span>
+          </p>
+        </div>
+        <!--attempt end-->
         <p class="panel-tabs">
           <a class="is-active">All</a>
           <a>Managers</a>
@@ -118,9 +128,16 @@
   </div>
 
 <!-- SCRIPTS -->
+
+<!--scripts for twilio stuff(RW)-->
+  <script src="//media.twiliocdn.com/sdk/js/common/v0.1/twilio-common.min.js"></script>
+  <script src="//media.twiliocdn.com/sdk/js/video/releases/1.0.0-beta2/twilio-video.js"></script>
+
+<!--jQuery, materialize, local js files-->
   <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
   crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
   <script type="text/javascript" src="public/assets/js/main.js"></script>
+  <script type="text/javascript" src="public/assets/js/vidquickstart.js"></script>
 </body>
 </html>
