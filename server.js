@@ -1,4 +1,15 @@
+// Load Twilio configuration from .env config file - the following environment
+// variables should be set:
+process.env.TWILIO_ACCOUNT_SID
+process.env.TWILIO_API_KEY
+process.env.TWILIO_API_SECRET
+process.env.TWILIO_CONFIGURATION_SID
+
+
 // Dependencies
+//dotenv(weird syntax, i know, but it works --RW)
+require('dotenv').load();
+//others
 const express = require("express");
 const exphbs = require("express-handlebars");
 const bodyParser = require("body-parser");
@@ -8,6 +19,11 @@ const passportConfig = require('./config/passport');
 const cookieParser = require('cookie-parser')
 const session = require('express-session');
 const errorhandler = require('errorhandler');
+const http = require('http');
+const path = require('path');
+const AccessToken = require('twilio').AccessToken;
+const VideoGrant = AccessToken.VideoGrant;
+const randomUsername = require('./public/assets/js/randos');
 
 // Create an instance of the express app.
 var app = express();
@@ -56,4 +72,44 @@ db.sequelize.sync({ force: true }).then(function() {
   app.listen(port, function() {
     console.log("App listening on PORT " + port);
   });
+});
+
+
+///FROM THIS POINT FORWARD IS TWILIO VIDEO CHAT CODE/////////
+/////////////////
+/////////////////
+// Create Express webapp
+var chatapp = express();
+//this one below///
+chatapp.use(express.static(path.join(__dirname, 'public')));
+
+/*
+Generate an Access Token for a chat application user - it generates a random
+username for the client requesting a token, and takes a device ID as a query
+parameter.
+*/
+chatapp.get('/token', function(request, response) {
+    var identity = randomUsername();
+    
+    // Create an access token which we will sign and return to the client,
+    // containing the grant we just created
+    var token = new AccessToken(
+        process.env.TWILIO_ACCOUNT_SID,
+        process.env.TWILIO_API_KEY,
+        process.env.TWILIO_API_SECRET
+    );
+
+        // Assign the generated identity to the token
+    token.identity = identity;
+
+    //grant the access token Twilio Video capabilities
+    var grant = new VideoGrant();
+    grant.configurationProfileSid = process.env.TWILIO_CONFIGURATION_SID;
+    token.addGrant(grant);
+
+    // Serialize the token to a JWT string and include it in a JSON response
+    response.send({
+        identity: identity,
+        token: token.toJwt()
+    });
 });
