@@ -3,3 +3,4 @@
 /config/firebase.js
 /config/keys.js
 /config/ascendimus.json
+/config/twiliosecrets.env
