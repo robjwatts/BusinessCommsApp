@@ -96,7 +96,7 @@ body {
 }
 
 .wrapper {
-  margin-top:7%;
+  margin-top:9%;
 }
 
 .review {
@@ -178,6 +178,12 @@ p.notification.is-success {
   position: relative;
 }
 
+.index-modalCard{
+  width:350px;
+  height: auto;
+  margin: 100px auto;
+  position: relative;
+}
 
 
 /*updated bulma css
