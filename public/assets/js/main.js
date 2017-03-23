@@ -4,6 +4,16 @@ $( ".login" ).click(function() {
 	console.log("clicked")
 });
 
+$( ".eventTile" ).click(function() {
+	$( "#add-event-modal" ).addClass( "is-active" );
+	console.log("clicked")
+});
+
+$(".is-success, .delete").click(function() {
+	$( "#add-event-modal" ).removeClass( "is-active" );
+	console.log("clicked")
+});
+
 $( ".is-success, .delete" ).click(function() {
 	$( ".loginModal" ).removeClass( "is-active" );
 	console.log("clicked")

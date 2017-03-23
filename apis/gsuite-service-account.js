@@ -1,6 +1,7 @@
 const keys = require("../config/keys.js");
 const jwt = require('jsonwebtoken');
 const request = require("request");
+const Drive = require("./drive.js");
 
 //will create JWT to send to GOOGLE and receive back access token
 function createJWT() {
@@ -40,11 +41,13 @@ function createJWT() {
 		'https://www.googleapis.com/auth/contacts',
 		'https://www.googleapis.com/auth/contacts.readonly',
 		'https://www.googleapis.com/auth/drive',
+		'https://www.googleapis.com/auth/drive.appdata',
 		'https://www.googleapis.com/auth/drive.file',
 		'https://www.googleapis.com/auth/drive.metadata',
 		'https://www.googleapis.com/auth/drive.metadata.readonly',
 		'https://www.googleapis.com/auth/drive.photos.readonly', 
 		'https://www.googleapis.com/auth/drive.readonly',
+		'https://www.googleapis.com/auth/drive.scripts',
 		'https://www.googleapis.com/auth/plus.login',
 		'https://www.googleapis.com/auth/urlshortener',
 		'https://www.googleapis.com/auth/userinfo.email',
@@ -73,11 +76,19 @@ function createJWT() {
 	//make a post request to Google to retrieve access token
 	getAccessToken(jsonWebToken).then((data)=>{
 
+		console.log(data);
+
+		data = JSON.parse(data);
+
 		var accessToken = data.access_token;
 		var tokenType = data.token_type;
 		var expiresIn = data.expires_in;
 
-		//now we can call Google API to retrieve service account data
+		console.log(accessToken);
+
+		Drive.listTeamDriveFiles(accessToken).then((success)=>{}).catch((err)=>{
+			console.log(err);
+		});
 
 	}).catch((error)=>{
 
@@ -122,5 +133,6 @@ function getAccessToken(jsonWebToken) {
 	})
 }
 
+createJWT();
 //decide what will be exported
 // module.exports = ;

@@ -42,7 +42,7 @@
           <div class="tile is-parent is-vertical">
            
             <div class="blogTile tile is-child notification">
-              <div class="Content">
+              {{!-- <div class="Content">
                 <h1 class="title">Hello World</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ultrices eleifend gravida, nulla nunc varius lectus, nec rutrum justo nibh eu lectus. Ut vulputate semper dui. Fusce erat odio, sollicitudin vel erat vel, interdum mattis neque.</p>
                 <br>
@@ -55,7 +55,7 @@
                 <br>
                 <h1 class="title">Hello World</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ultrices eleifend gravida, nulla nunc varius lectus, nec rutrum justo nibh eu lectus. Ut vulputate semper dui. Fusce erat odio, sollicitudin vel erat vel, interdum mattis neque.</p>
-              </div>
+              </div> --}}
             </div>
 
              <div class="tweetTile tile is-child notification">
@@ -116,7 +116,59 @@
             <div class="content">
               <p class="title">Upcoming Events</p>
               <div class="content">
-                <!-- Content -->
+                <div class="modal" id="add-event-modal">
+                  <div class="modal-background"></div>
+                  <div class="modal-content">
+                    <form method="POST" action='/add/event'>
+                      <div class="field">
+                        <label class="label">Event Name</label>
+                        <p class="control">
+                          <input class="input" type="text" placeholder="title" id='event-name' name="event_name">
+                        </p>
+                      </div>
+                      <div class="field">
+                        <label class="label">Start Date (mm-dd-yyyy)</label>
+                        <p class="control">
+                          <input class="input" type="date" placeholder="01-01-2017" id='start-date' name="start_date">
+                        </p>
+                      </div>
+                      <div class="field">
+                        <label class="label">End Date (mm-dd-yyyy)</label>
+                        <p class="control">
+                          <input class="input" type="date" placeholder="01-02-2017" id='end-date' name="end_date">
+                        </p>
+                      </div>
+                      <div class="field">
+                        <label class="label">Start Time (hh:mm am/pm)</label>
+                        <p class="control">
+                          <input class="input" type="time" placeholder="12:01 am" id='start-time' name="start_time">
+                        </p>
+                      </div>
+                      <div class="field">
+                        <label class="label">End (hh:mm am/pm)</label>
+                        <p class="control">
+                          <input class="input" type="time" placeholder="11:59 pm" id='end-time' name="end_time">
+                        </p>
+                      </div>
+                      <div class="field">
+                        <label class="label">Location</label>
+                        <p class="control">
+                          <input class="input" type="texttext" placeholder="New York, NY" id='location' name="event_location">
+                        </p>
+                      </div>
+                      <div class="field">
+                        <label class="label">Description</label>
+                        <p class="control">
+                          <textarea class="textarea"  placeholder="Description" id='description' name='event_description'></textarea>
+                        </p>
+                      </div>
+                      <p class="control">
+                        <button class="button is-primary" type='submit'>Submit</button>
+                      </p>         
+                    </form>
+                  </div>
+                  <button class="modal-close"></button>
+                </div>
               </div>
             </div>
           </div>

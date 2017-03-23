@@ -21,7 +21,7 @@ function listAllEvents(req, res, user) {
   });
 }
 
-function listTeamDrive(req, res, user) {
+function listOrgCalendar(req, res, user) {
 
 }
 	
