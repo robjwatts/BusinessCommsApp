@@ -159,6 +159,7 @@ body {
   color:red;
 }
 
+
 .chatArea{
   display:inline-block;
   width:100%;
@@ -188,6 +189,7 @@ p.notification.is-success {
   margin: 100px auto;
   position: relative;
 }
+
 
 
 /*updated bulma css

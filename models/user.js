@@ -4,6 +4,7 @@ module.exports = function(sequelize, DataTypes) {
     name: DataTypes.STRING,
     role: DataTypes.STRING,
     profilePicUrl: DataTypes.TEXT,
+    email: DataTypes.STRING,
     accessToken: DataTypes.TEXT,
     refreshToken: DataTypes.TEXT,
     googleId: DataTypes.TEXT,
