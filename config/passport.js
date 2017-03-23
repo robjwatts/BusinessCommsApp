@@ -41,7 +41,7 @@ passport.use(new GoogleStrategy({
         });
 
       } else {
-        done(found ? user : false);
+        done(null, user);
       }
     });
   })

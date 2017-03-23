@@ -6,9 +6,9 @@ if (process.env.JAWSDB_URL) {
 } else {
 	connection = mysql.createConnection({
 	  host: "localhost",
-	  user: "root",
-	  password: "",
-	  database: "organizations_db"
+	  user: "applications",
+	  password: "runningfromnode",
+	  database: "orgDB"
 	});
 }
 
