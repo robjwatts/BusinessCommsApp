@@ -157,6 +157,29 @@ body {
   color:red;
 }
 
+.chatArea{
+  display:inline-block;
+  width:100%;
+  height: 500px;
+  border:2px solid black;
+  position:relative;
+}
+
+p.notification.is-success {
+  background-color:#8d9fac;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.chatroomEntry{
+  width:350px;
+  height: auto;
+  margin: 100px auto;
+  position: relative;
+}
+
+
+
 /*updated bulma css
 */
 .tabs li.is-active a {
