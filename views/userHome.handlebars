@@ -1,178 +1,95 @@
-<div class="tabs is-centered is-boxed is-medium">
-    <ul>
-      <li class="is-active">
-        <a href="/home">
-          <span class="icon is-small"><i class="fa fa fa-home" aria-hidden="true"></i></span>
-          <span>Home</span>
-        </a>
-      </li>
-      <li>
-        <a href="/calendar">
-          <span class="icon is-small"><i class="fa fa-calendar" aria-hidden="true"></i></span>
-          <span>Calendar</span>
-        </a>
-      </li>
-       <li>
-        <a class="nav-item is-disabled">
-          <img src="public/assets/img/logo.png" alt="Ascendimus logo">
-        </a>
-      </li>
-      <li>
-        <a href="chat">
-          <span class="icon is-small"><i class="fa fa-weixin" aria-hidden="true"></i></span>
-          <span>Chat</span>
-        </a>
-      </li>
-      <li>
-        <a href="documents">
-          <span class="icon is-small"><i class="fa fa-files-o" aria-hidden="true"></i></span>
-          <span>Documents</span>
-        </a>
-      </li>
-    </ul>
-  </div>
+  <nav class="nav has-shadow">
+    <div class="nav-left">
+      <a class="nav-item is-disabled">
+        <img src="public/assets/img/logo.png" alt="Ascendimus logo">
+      </a>
+    </div>
+    <div class="nav-right nav-menu">
+      <a href="/home" class="nav-item is-active">
+        Home
+      </a>
+      <a href="/chat" class="nav-item">
+        Chat
+      </a>
+      <a href="/documents" class="nav-item">
+        Documents
+      </a>
+    </div>
+  </nav>
+  <br>
+  
   <div class="container">
     <div class="columns is-mobile">
       <div class="column is-12 has-text-centered"><h1 class="title is-1">Welcome User!</h1></div>
     </div>
 
     <div class="tile is-ancestor">
-      <div class="tile is-vertical is-8">
-        <div class="tile">
-          <div class="tile is-parent is-vertical">
-           
-            <div class="blogTile tile is-child notification">
-              {{!-- <div class="Content">
-                <h1 class="title">Hello World</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ultrices eleifend gravida, nulla nunc varius lectus, nec rutrum justo nibh eu lectus. Ut vulputate semper dui. Fusce erat odio, sollicitudin vel erat vel, interdum mattis neque.</p>
-                <br>
-                <hr>
-                <br>
-                <h1 class="title">Hello World</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ultrices eleifend gravida, nulla nunc varius lectus, nec rutrum justo nibh eu lectus. Ut vulputate semper dui. Fusce erat odio, sollicitudin vel erat vel, interdum mattis neque.</p>
-                <br>
-                <hr>
-                <br>
-                <h1 class="title">Hello World</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ultrices eleifend gravida, nulla nunc varius lectus, nec rutrum justo nibh eu lectus. Ut vulputate semper dui. Fusce erat odio, sollicitudin vel erat vel, interdum mattis neque.</p>
-              </div> --}}
-            </div>
 
-             <div class="tweetTile tile is-child notification">
-              <article class="media">
-                <figure class="media-left">
-                  <p class="image is-64x64">
-                    <img src="http://bulma.io/images/placeholders/128x128.png">
-                  </p>
-                </figure>
-                <div class="media-content">
-                  <div class="content">
-                    <p>
-                      <strong>John Smith</strong> <small>@johnsmith</small> <small>31m</small>
-                      <br>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
-                    </p>
-                  </div>
-                  <nav class="level is-mobile">
-                    <div class="level-left">
-                      <a class="level-item reply">
-                        <span class="icon is-small"><i class="fa fa-reply"></i></span>
-                      </a>
-                      <a class="level-item retweet">
-                        <span class="icon is-small"><i class="fa fa-retweet"></i></span>
-                      </a>
-                      <a class="level-item heart">
-                        <span class="icon is-small"><i class="fa fa-heart"></i></span>
-                      </a>
-                    </div>
-                  </nav>
-                </div>
-                <div class="media-right">
-                  <a class="level-item tweetPrev">
-                        <span class="icon is-medium"><i class="fa fa-angle-up" aria-hidden="true"></i></span>
-                  </a>
-                   <a class="level-item tweetNext">
-                        <span class="icon is-medium"><i class="fa fa-angle-down" aria-hidden="true"></i></span>
-                  </a>
-                </div>
-              </article>
-            </div>
-          </div>
+  <div class="tile is-4 is-vertical is-parent">
+    <div class="eventTile tile is-child notification">
+      <p class="title">Upcoming Events</p>
+        <div class="content">
+          <!-- Content -->
+
         </div>
-      </div>
-
-      <div class="tile is-vertical is-4">
-        <div class="tile is-parent is-vertical">
-          <div class="onlineTile tile is-child notification">
-            <div class="content">
-              <p class="title">Online Users</p>
-              <div class="content">
-                <!-- Content -->
-              </div>
-            </div>
-          </div>
-
-          <div class="tile eventTile is-child notification">
-            <div class="content">
-              <p class="title">Upcoming Events</p>
-              <div class="content">
-                <div class="modal" id="add-event-modal">
-                  <div class="modal-background"></div>
-                  <div class="modal-content">
-                    <form method="POST" action='/add/event'>
-                      <div class="field">
-                        <label class="label">Event Name</label>
-                        <p class="control">
-                          <input class="input" type="text" placeholder="title" id='event-name' name="event_name">
-                        </p>
-                      </div>
-                      <div class="field">
-                        <label class="label">Start Date (mm-dd-yyyy)</label>
-                        <p class="control">
-                          <input class="input" type="date" placeholder="01-01-2017" id='start-date' name="start_date">
-                        </p>
-                      </div>
-                      <div class="field">
-                        <label class="label">End Date (mm-dd-yyyy)</label>
-                        <p class="control">
-                          <input class="input" type="date" placeholder="01-02-2017" id='end-date' name="end_date">
-                        </p>
-                      </div>
-                      <div class="field">
-                        <label class="label">Start Time (hh:mm am/pm)</label>
-                        <p class="control">
-                          <input class="input" type="time" placeholder="12:01 am" id='start-time' name="start_time">
-                        </p>
-                      </div>
-                      <div class="field">
-                        <label class="label">End (hh:mm am/pm)</label>
-                        <p class="control">
-                          <input class="input" type="time" placeholder="11:59 pm" id='end-time' name="end_time">
-                        </p>
-                      </div>
-                      <div class="field">
-                        <label class="label">Location</label>
-                        <p class="control">
-                          <input class="input" type="texttext" placeholder="New York, NY" id='location' name="event_location">
-                        </p>
-                      </div>
-                      <div class="field">
-                        <label class="label">Description</label>
-                        <p class="control">
-                          <textarea class="textarea"  placeholder="Description" id='description' name='event_description'></textarea>
-                        </p>
-                      </div>
-                      <p class="control">
-                        <button class="button is-primary" type='submit'>Submit</button>
-                      </p>         
-                    </form>
-                  </div>
-                  <button class="modal-close"></button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
+    <div class="tweetTile tile is-child notification">
+      <article class="media">
+        <figure class="media-left">
+          <p class="image is-64x64">
+            <img src="http://bulma.io/images/placeholders/128x128.png">
+          </p>
+        </figure>
+        <div class="media-content">
+          <div class="content">
+            <p>
+              <strong>John Smith</strong> <small>@johnsmith</small> <small>31m</small>
+              <br>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
+            </p>
+          </div>
+
+          <nav class="level is-mobile">
+            <div class="level-left">
+              <a class="level-item reply">
+                <span class="icon is-small"><i class="fa fa-reply"></i></span>
+              </a>
+              <a class="level-item retweet">
+                <span class="icon is-small"><i class="fa fa-retweet"></i></span>
+              </a>
+              <a class="level-item heart">
+                <span class="icon is-small"><i class="fa fa-heart"></i></span>
+              </a>
+
+            </div>
+          </nav>
+        </div>
+        <div class="media-right">
+          <a class="level-item tweetPrev">
+                <span class="icon is-medium"><i class="fa fa-angle-up" aria-hidden="true"></i></span>
+          </a>
+           <a class="level-item tweetNext">
+                <span class="icon is-medium"><i class="fa fa-angle-down" aria-hidden="true"></i></span>
+          </a>
+        </div>
+      </article>
+    </div>
+  </div>
+  <div class="tile is-parent">
+    <div class="blogTile tile is-child notification">
+      <h1 class="title">Hello World</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ultrices eleifend gravida, nulla nunc varius lectus, nec rutrum justo nibh eu lectus. Ut vulputate semper dui. Fusce erat odio, sollicitudin vel erat vel, interdum mattis neque.</p>
+      <br>
+      <hr>
+      <br>
+      <h1 class="title">Hello World</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ultrices eleifend gravida, nulla nunc varius lectus, nec rutrum justo nibh eu lectus. Ut vulputate semper dui. Fusce erat odio, sollicitudin vel erat vel, interdum mattis neque.</p>
+      <br>
+      <hr>
+      <br>
+      <h1 class="title">Hello World</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ultrices eleifend gravida, nulla nunc varius lectus, nec rutrum justo nibh eu lectus. Ut vulputate semper dui. Fusce erat odio, sollicitudin vel erat vel, interdum mattis neque.</p>
+    </div>
+  </div>
+</div>
   </div>
