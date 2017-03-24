@@ -279,6 +279,11 @@ textarea.chatForm{
   font-style:oblique;
 }
 
+.previewVid{
+  position:absolute;
+  right:200px;
+  top:150px;
+}
 
 /*updated bulma css
 */
