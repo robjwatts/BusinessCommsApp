@@ -8,7 +8,8 @@ process.env.TWILIO_CONFIGURATION_SID
 
 // Dependencies
 //dotenv(weird syntax, i know, but it works --RW)
-require('dotenv').load();
+///this line also needs to be commented out when it comes to be deployed on heroku!
+// require('dotenv').load();
 //others
 const express = require("express");
 const exphbs = require("express-handlebars");
