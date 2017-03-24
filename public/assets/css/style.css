@@ -13,8 +13,12 @@
     src: url(BebasNeue.otf);
 }
 
+
+
 body {
   background-color: white;
+
+  height: 100vh;
 }
 
 .title {
@@ -127,20 +131,22 @@ body {
 
 
 
-.blogTile, .tweetTile, .onlineTile, .eventTile {
+.blogTile, .tweetTile, .eventTile {
   border: 2px solid black;
   background-color:#464f56;
   color:white;
+  overflow:auto;
+
+}
+
+
+.blogTile {
+  height: 100%;
 }
 
 .Content {
   height:90%;
   overflow:auto;
-}
-
-.calendarCont{
-  border:2px gray solid;
-  height: 550px;
 }
 
 .chatCont{
@@ -160,15 +166,6 @@ body {
 }
 
 
-.chatArea{
-  display:inline-block;
-  width:100%;
-  height: 500px;
-  border:1px solid black;
-  position:relative;
-  border-bottom-right-radius: 2px;
-  border-bottom-left-radius: 2px;
-}
 
 p.notification.is-success {
   background-color:#8d9fac;
@@ -190,6 +187,93 @@ p.notification.is-success {
   position: relative;
 }
 
+.welcome {
+  display: block;
+  -ms-flex-preferred-size: 0;
+      flex-basis: 0;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+  padding: 0px;
+}
+
+p.inline{
+  float:left;
+}
+
+
+/*Events Tile*/
+.eventsTitle, .blogTitle{
+  border-bottom:2px solid;
+}
+
+.eventsContent{
+  overflow: auto;
+  font-size:90%;
+}
+
+.eventTable{
+  width:100%;
+  overflow:none;
+}
+
+/*chat area*/
+.chatArea{
+  display:inline-block;
+  width:100%;
+  height: 500px;
+  border:1px solid black;
+  position:relative;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 4px;
+}
+
+.usersCam{
+  width:100%;
+  height:75%;
+  border-bottom: 2px solid black;
+  position:relative;
+}
+
+.chatBackground{
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: rgba(10, 10, 10, 0.86);
+}
+
+.usersChat{
+  height:25%;
+  width:100%;
+  position:absolute;
+  bottom:0;
+  padding:10px;
+}
+
+textarea.chatForm{
+    display: block;
+    line-height: 1.25;
+    max-height: 600px;
+    max-width: 100%;
+    min-width: 100%;
+    padding: 0.625em;
+    resize: vertical;
+    min-height:105px;
+}
+
+.leaveChat{
+  position:absolute;
+  right:10px;
+  top:10px;
+}
+
+.chatText{
+  overflow:auto;
+}
 
 
 /*updated bulma css

@@ -22,90 +22,138 @@
 <br>
 
 <div class="columns">
- <div class="column is-3">
-   <nav class="panel">
-     <p class="panel-heading">
-      Online Users
-     </p>
-     <div class="panel-block">
-       <p class="control has-icon">
-         <input class="input is-small" type="text" placeholder="Search">
-         <span class="icon is-small">
-           <i class="fa fa-search"></i>
-         </span>
-       </p>
-     </div>
-     <p class="panel-tabs">
-       <a class="is-active">All</a>
-       <a>Managers</a>
-       <a>Executives</a>
-        <a>Offline</a>
-     </p>
-     <a class="panel-block">
-       <span class="panel-icon">
-         <i class="fa fa-book"></i>
-       </span>
-       bulma
-     </a>
-     <a class="panel-block">
-       <span class="panel-icon">
-         <i class="fa fa-book"></i>
-       </span>
-       marksheet
-     </a>
-     <a class="panel-block">
-       <span class="panel-icon">
-         <i class="fa fa-book"></i>
-       </span>
-       minireset.css
-     </a>
-     <a class="panel-block">
-       <span class="panel-icon">
-         <i class="fa fa-book"></i>
-       </span>
-       jgthms.github.io
-     </a>
-     <a class="panel-block">
-       <span class="panel-icon">
-         <i class="fa fa-code-fork"></i>
-       </span>
-       daniellowtw/infBoard
-     </a>
-     <a class="panel-block">
-       <span class="panel-icon">
-         <i class="fa fa-code-fork"></i>
-       </span>
-       mojs
-     </a>
-   </nav>
- </div>
 
- <div class="column chatCont">
-   <p class="notification is-success title">
-     Chat Area
-   </p>
-   <!--displays info-->
-   <div class="chatArea">
-     <div class="modal-background">
-       <div class="chatroomEntry">
-         <header class="modal-card-head">
-           <p class="modal-card-title has-text-centered">Enter Name of Chatroom</p>
-           <button class="delete"></button>
-         </header>
-         <section class="modal-card-body">
-           <div class="field">
-             <p class="control">
-               <input class="input chatName" type="text" placeholder="Chat Room">
-             </p>
-           </div>
-         </section>
-         <footer class="modal-card-foot">
-           <a class="button is-success">Submit</a>
-           <a class="button cancel">Cancel</a>
-         </footer>
-       </div>
-     </div>
-   </div>
- </div>
+  <div class="column is-3">
+    <nav class="panel">
+      <p class="panel-heading">
+       Online Users
+      </p>
+      <div class="panel-block">
+        <p class="control has-icon">
+          <input class="input is-small" type="text" placeholder="Search">
+          <span class="icon is-small">
+            <i class="fa fa-search"></i>
+          </span>
+        </p>
+      </div>
+      <p class="panel-tabs">
+        <a class="is-active">All</a>
+         <a>Offline</a>
+      </p>
+      <a class="panel-block">
+        <span class="panel-icon">
+          <i class="fa fa-book"></i>
+        </span>
+        bulma
+      </a>
+      <a class="panel-block">
+        <span class="panel-icon">
+          <i class="fa fa-book"></i>
+        </span>
+        marksheet
+      </a>
+      <a class="panel-block">
+        <span class="panel-icon">
+          <i class="fa fa-book"></i>
+        </span>
+        minireset.css
+      </a>
+      <a class="panel-block">
+        <span class="panel-icon">
+          <i class="fa fa-book"></i>
+        </span>
+        jgthms.github.io
+      </a>
+      <a class="panel-block">
+        <span class="panel-icon">
+          <i class="fa fa-code-fork"></i>
+        </span>
+        daniellowtw/infBoard
+      </a>
+      <a class="panel-block">
+        <span class="panel-icon">
+          <i class="fa fa-code-fork"></i>
+        </span>
+        mojs
+      </a>
+    </nav>
+  </div>
+
+  <div class="column chatCont">
+    <p class="notification is-success title">
+      Chat Area
+    </p>
+    <div class="chatArea">
+      <div class="usersCam chatBackground">
+        <div class="columns">
+          <div class="column remoteView">
+            <div id="remote-media"></div>
+          </div>
+          <div class="column localView">
+            <a><div class="leaveChat">
+              <i class="fa fa-times-circle" aria-hidden="true"></i>
+            </div>
+            </a>
+            <div id="local-media"></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="usersChat">
+        <div class="columns">
+          <div class="column chatText">
+            
+            <div class="columns chatMessageArea has-text-left">
+              <div class="column chatUser is-3">
+                Users 1
+              </div>
+              <div class="column chatTime is-2">
+                0:00:00
+              </div>
+              <div class="column chatMessage">
+                Third column
+              </div>
+            </div>
+            
+
+          </div>
+          <div class="column is-4">
+            <div class="field">
+              <p class="control">
+                <textarea class="chatForm" placeholder="Message"></textarea>
+              </p>
+            </div>
+          </div>
+          <div class="column is-2">
+            <p class="control">
+              <button class="button is-primary">Submit</button>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-background">
+        <div class="chatroomEntry is-overlay">
+          <header class="modal-card-head">
+            <p class="modal-card-title has-text-centered">Enter Name of Chatroom</p>
+            <button class="delete"></button>
+          </header>
+          <section class="modal-card-body">
+            <div class="field">
+              <p class="control">
+                <input class="input chatName" type="text" placeholder="Chat Room">
+              </p>
+            </div>
+          </section>
+          <footer class="modal-card-foot">
+            <a class="button is-success submitChat">Submit</a>
+            <a class="button canel">Cancel</a>
+          </footer>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
 
 </div>
