@@ -17,8 +17,11 @@ module.exports = {
       blogText: {
         type: Sequelize.TEXT
       },
-      tags: {
-        type: Sequelize.STRING
+      likes: {
+        type: Sequelize.INTEGER
+      },
+      likedBy: {
+        type: Sequelize.TEXT
       },
       createdAt: {
         allowNull: false,

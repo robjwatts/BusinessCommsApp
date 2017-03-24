@@ -23,7 +23,7 @@ const http = require('http');
 const path = require('path');
 const AccessToken = require('twilio').AccessToken;
 const VideoGrant = AccessToken.VideoGrant;
-const randomUsername = require('./public/assets/js/randos');
+const randomUsername = require('./config/randos');
 
 // Create an instance of the express app.
 var app = express();
@@ -34,7 +34,14 @@ var port = process.env.PORT || 8000;
 app.use('/public', express.static(__dirname + '/public'));
 app.use('/node_modules', express.static(__dirname + '/node_modules'));
 
-app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+var hbs = exphbs.create({
+    defaultLayout: 'main',
+
+    layoutsDir: __dirname + '/views/layouts/',
+    partialsDir: __dirname + '/views/partials/'
+});
+
+app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
 app.set('port', port);
@@ -59,6 +66,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 require("./controllers/authentication.js")(app);
+require("./controllers/home-controllers.js")(app, hbs);
 require("./routes/drive.js")(app);
 require("./routes/calendar.js")(app);
 
@@ -78,17 +86,13 @@ db.sequelize.sync({ force: true }).then(function() {
 ///FROM THIS POINT FORWARD IS TWILIO VIDEO CHAT CODE/////////
 /////////////////
 /////////////////
-// Create Express webapp
-var chatapp = express();
-//this one below///
-chatapp.use(express.static(path.join(__dirname, 'public')));
 
 /*
 Generate an Access Token for a chat application user - it generates a random
 username for the client requesting a token, and takes a device ID as a query
 parameter.
 */
-chatapp.get('/token', function(request, response) {
+app.get('/token', function(request, response) {
     var identity = randomUsername();
     
     // Create an access token which we will sign and return to the client,

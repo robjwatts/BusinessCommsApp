@@ -4,6 +4,11 @@ $( ".login" ).click(function() {
 	console.log("clicked")
 });
 
+$( ".blogTile" ).click(function() {
+	$( "#add-blog-modal" ).addClass( "is-active" );
+	console.log("clicked")
+});
+
 $( ".eventTile" ).click(function() {
 	$( "#add-event-modal" ).addClass( "is-active" );
 	console.log("clicked")
@@ -12,6 +17,11 @@ $( ".eventTile" ).click(function() {
 $(".is-success, .delete").click(function() {
 	$( "#add-event-modal" ).removeClass( "is-active" );
 	console.log("clicked")
+});
+
+$("#blog-form").submit(function() {
+	$( "#add-blog-modal" ).removeClass("is-active");
+	console.log("form submitted")
 });
 
 $( ".is-success, .delete" ).click(function() {

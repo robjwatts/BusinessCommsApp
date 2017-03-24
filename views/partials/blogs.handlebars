@@ -1,0 +1,25 @@
+{{#each blogs}}
+	<div>
+		<img src = "{{User.profilePicUrl}}">
+	</div>
+	<h1 class="blog-title">{{blogTitle}}</h1>
+
+	<p>{{blogText}}</p>
+
+	<div class="blog-footer">
+		Authored By: {{User.name}}
+
+		
+		<div id="controls">
+			<button id="like-btn">Like</button>
+		{{#compare User.id "==" ../current_user.id}}
+		<form>
+			<button id="update-btn">Update</button>
+		</form>
+		<form>
+			<button id="delete-btn">Delete</button>
+		</form>
+		{{/compare}}
+		</div>
+	</div>
+{{/each}}
