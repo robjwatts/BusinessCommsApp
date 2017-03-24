@@ -13,8 +13,10 @@
     src: url(BebasNeue.otf);
 }
 
+
+
 body {
-	background-color: white;
+  background-color: white;
 }
 
 .title {
@@ -87,7 +89,7 @@ body {
 .parallax { 
   background-image: url("../img/team.jpg");
   height: 100%; 
-	margin: 0 -10%;
+  margin: 0 -10%;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -96,7 +98,7 @@ body {
 }
 
 .wrapper {
- 	margin-top:7%;
+  margin-top:9%;
 }
 
 .review {
@@ -106,9 +108,9 @@ body {
 }
 
 .logo {
-	position:absolute;
-	margin-left:150px;
-	margin-top:18%;
+  position:absolute;
+  margin-left:150px;
+  margin-top:18%;
   height: auto; 
   width: auto; 
   max-width: 700px;
@@ -125,20 +127,19 @@ body {
   max-height: 250px;
 }
 
-.blogTile, .tweetTile, .onlineTile, .eventTile {
+
+
+.blogTile, .tweetTile, .eventTile {
   border: 2px solid black;
   background-color:#464f56;
   color:white;
-}
-
-.Content {
-  height:275px;
   overflow:auto;
 }
 
-.calendarCont{
-  border:2px gray solid;
-  height: 550px;
+
+.Content {
+  height:90%;
+  overflow:auto;
 }
 
 .chatCont{
@@ -156,6 +157,100 @@ body {
 .is-clicked{
   color:red;
 }
+
+.chatArea{
+  display:inline-block;
+  width:100%;
+  height: 500px;
+  border:1px solid black;
+  position:relative;
+  border-bottom-right-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+
+p.notification.is-success {
+  background-color:#8d9fac;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.chatroomEntry{
+  width:350px;
+  height: auto;
+  margin: 100px auto;
+  position: relative;
+}
+
+.index-modalCard{
+  width:350px;
+  height: auto;
+  margin: 100px auto;
+  position: relative;
+}
+
+.welcome {
+  display: block;
+  -ms-flex-preferred-size: 0;
+      flex-basis: 0;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+  padding: 0px;
+}
+
+p.inline{
+  float:left;
+}
+
+
+/*Events Tile*/
+.eventsTitle, .blogTitle{
+  border-bottom:2px solid;
+}
+
+.eventsContent{
+  overflow: auto;
+  font-size:90%;
+}
+
+.eventTable{
+  width:100%;
+  overflow:none;
+}
+
+/*Events Description*/
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
+
 
 /*updated bulma css
 */

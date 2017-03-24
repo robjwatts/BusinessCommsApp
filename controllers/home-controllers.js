@@ -101,19 +101,11 @@ module.exports = function(app, hbs) {
  	// });
 
  	router.put("/api/blogs/update", (req, res)=>{
- 		// connection.updateOne(req.body.id).then((success)=>{
- 		// 	res.redirect("/index");
- 		// }).catch((err)=>{
- 		// 	res.sendStatus(503).json(err);
- 		// });
+ 		
  	});
 
  	router.delete("api/blogs/delete", (req, res)=>{
- 		// connection.deleteOne(req.body.id).then((success)=>{
- 		// 	res.redirect("/index");
- 		// }).catch((err)=>{
- 		// 	res.sendStatus(503).json(err);
- 		// });
+ 		
  	});
 
  	app.use("/", router);

@@ -1,29 +1,23 @@
 {{#each blogs}}
 <div id={{id}}>
-	<div class="blog-author-pic">
-		<img src = "{{User.profilePicUrl}}">
-	</div>
+	<br>
 	<div class="blog-content">
-		<div class="blog-content-header">
-			<span class="blog-title" data-id="{{id}}"data-blog="{{blogTitle}}">{{blogTitle}}</span>
-		</div>
-		<div class="blog-content-text">
-			<span class="blog-text" data-id="{{id}}"data-blog="{{blogText}}">{{blogText}}</span>
-			<textarea class='edit' style="display: none">
-		</div>
+		<h1 class="blog-title" data-id="{{id}}"data-blog="{{blogTitle}}">{{blogTitle}}</h1>
+		<div class="blog-text" data-id="{{id}}"data-blog="{{blogText}}">{{blogText}}</div>
 	</div>
 
 	<div class="blog-footer">
+		<img class = "blog-author-pic" src = "{{User.profilePicUrl}}">
 		<span id="blog-author-name">Authored By: {{User.name}}</span>
 		
 		<div id="controls">
 			<button class="like-btn">Like</button>
 		{{#compare User.id "==" ../current_user.id}}
 		
-			<button class="update-btn" data-id="{{id}}">Update</button>
+			<button class="update-blog-btn" data-id="{{id}}">Update</button>
 		
 		
-			<button class="delete-btn" data-id="{{id}}">Delete</button>
+			<button class="delete-blog-btn" data-id="{{id}}">Delete</button>
 		
 		{{/compare}}
 		</div>
@@ -66,8 +60,9 @@
 
 <script type="text/javascript">
 	
- 	$('.update-btn').click(openModal);
+ 	$('.update-blog-btn').click(openModal);
  	$(".submit-update, .delete").click(closeModal);
+ 	$(".delete-blog-btn").click(deleteBlog);
 
 
   	function openModal() {
@@ -80,6 +75,15 @@
     	currentModal.removeClass("is-active");
 	}
 
+	function deleteBlog() {
+		var currentBlog = $(this).data("id");
+		$.ajax({
+			method: "DELETE",
+			url: "/api/blogs/delete",
+			data: currentBlog
+		}).done(function(){});
+
+	}
 
   // This function updates a todo in our database
   // function updateTodo(todo) {
