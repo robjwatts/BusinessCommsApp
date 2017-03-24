@@ -13,8 +13,12 @@
     src: url(BebasNeue.otf);
 }
 
+
+
 body {
   background-color: white;
+
+  height: 100vh;
 }
 
 .title {
@@ -127,20 +131,20 @@ body {
 
 
 
-.blogTile, .tweetTile, .onlineTile, .eventTile {
+.blogTile, .tweetTile, .eventTile {
   border: 2px solid black;
   background-color:#464f56;
   color:white;
+  overflow:auto;
 }
+
+
+.blogTile {
+  height: 100%;
 
 .Content {
   height:90%;
   overflow:auto;
-}
-
-.calendarCont{
-  border:2px gray solid;
-  height: 550px;
 }
 
 .chatCont{
@@ -158,7 +162,6 @@ body {
 .is-clicked{
   color:red;
 }
-
 
 .chatArea{
   display:inline-block;
@@ -190,6 +193,68 @@ p.notification.is-success {
   position: relative;
 }
 
+.welcome {
+  display: block;
+  -ms-flex-preferred-size: 0;
+      flex-basis: 0;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+  padding: 0px;
+}
+
+p.inline{
+  float:left;
+}
+
+
+/*Events Tile*/
+.eventsTitle, .blogTitle{
+  border-bottom:2px solid;
+}
+
+.eventsContent{
+  overflow: auto;
+  font-size:90%;
+}
+
+.eventTable{
+  width:100%;
+  overflow:none;
+}
+
+/*Events Description*/
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
 
 
 /*updated bulma css

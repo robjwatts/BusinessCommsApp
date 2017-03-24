@@ -26,29 +26,7 @@ module.exports = function(app) {
 
 	router.get("/documents", (req, res)=>{
 			res.render("userDocuments")
-	});
-
-
-	
-
-	router.get("/home", function(req, res, next) {
-	  console.log('going home'); next(null);
-
-// 	}, middleware.authenticated, function(req, res, next) {
-// 		//do something with service account here
-// 		next(null); 
-// 	}, function(req, res, next) {
-// 	  	res.render("index", {user: req.user});
-// 	});
-
-	}, middleware.authenticated, function(req, res) {
-	  res.render("userHome", 
-	    {user: req.user}
-	  );
-	})
-
-
-	
+	});	
 
 	// GET /auth/google
 	//   Use passport.authenticate() as route middleware to authenticate the
