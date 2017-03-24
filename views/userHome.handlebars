@@ -20,6 +20,7 @@
 
 <div class="container">
   <div class="columns is-mobile">
+
     <div class="welcome is-12 has-text-centered "><h1 class="title is-1">Welcome {{current_user.name}}!</h1></div>
   </div>
 
@@ -34,7 +35,9 @@
           </p>
         </div>
         <br>
+
         {{!-- {{> events}} --}}
+
       </div>
 
       {{!-- tweet modal --}}
@@ -46,7 +49,9 @@
             <button class="delete"></button>
           </header>
           <section class="modal-card-body">
-            <form method="POST" action='api/events/new'>
+
+            <form method="POST" action='/api/events/new'>
+
               <div class="field">
                 <label class="label">Event Name</label>
                 <p class="control">
@@ -150,7 +155,9 @@
             <button class="delete"></button>
           </header>
           <section class="modal-card-body">
+
             <form method="POST" action='/api/blogs/new' id="blogForm">
+
               <div class="field">
                 <label class="label">Blog Title</label>
                 <p class="control">
@@ -160,7 +167,9 @@
               <div class="field">
                 <label class="label">Description</label>
                 <p class="control">
+
                   <textarea class="textarea"  placeholder="Blog Description" id='blogDescription' name='blog_text'></textarea>
+
                 </p>
               </div>        
             </form>
@@ -169,7 +178,9 @@
             <a class="button is-primary submitBlog">Submit</a>
           </footer>
         </div>
+
       </div> {{!-- MODAL ENDS HERE --}}
+
 
       {{!-- blog tile --}}
       <div class="blogTile tile is-child notification">
@@ -181,6 +192,7 @@
           </p>
         </div>
         <div class="blogContent">
+
             {{> blogs}}
         </div>
 
@@ -199,3 +211,4 @@
  });
 
 </script>
+

@@ -37,8 +37,6 @@
       </div>
       <p class="panel-tabs">
         <a class="is-active">All</a>
-        <a>Managers</a>
-        <a>Executives</a>
          <a>Offline</a>
       </p>
       <a class="panel-block">
@@ -85,8 +83,56 @@
       Chat Area
     </p>
     <div class="chatArea">
+      <div class="usersCam chatBackground">
+        <div class="columns">
+          <div class="column remoteView">
+            <div id="remote-media"></div>
+          </div>
+          <div class="column localView">
+            <a><div class="leaveChat">
+              <i class="fa fa-times-circle" aria-hidden="true"></i>
+            </div>
+            </a>
+            <div id="local-media"></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="usersChat">
+        <div class="columns">
+          <div class="column chatText">
+            
+            <div class="columns chatMessageArea has-text-left">
+              <div class="column chatUser is-3">
+                Users 1
+              </div>
+              <div class="column chatTime is-2">
+                0:00:00
+              </div>
+              <div class="column chatMessage">
+                Third column
+              </div>
+            </div>
+            
+
+          </div>
+          <div class="column is-4">
+            <div class="field">
+              <p class="control">
+                <textarea class="chatForm" placeholder="Message"></textarea>
+              </p>
+            </div>
+          </div>
+          <div class="column is-2">
+            <p class="control">
+              <button class="button is-primary">Submit</button>
+            </p>
+          </div>
+        </div>
+      </div>
+
       <div class="modal-background">
-        <div class="chatroomEntry">
+        <div class="chatroomEntry is-overlay">
           <header class="modal-card-head">
             <p class="modal-card-title has-text-centered">Enter Name of Chatroom</p>
             <button class="delete"></button>
@@ -99,11 +145,12 @@
             </div>
           </section>
           <footer class="modal-card-foot">
-            <a class="button is-success">Submit</a>
+            <a class="button is-success submitChat">Submit</a>
             <a class="button canel">Cancel</a>
           </footer>
         </div>
       </div>
+
     </div>
   </div>
 

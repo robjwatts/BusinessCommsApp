@@ -136,11 +136,13 @@ body {
   background-color:#464f56;
   color:white;
   overflow:auto;
+
 }
 
 
 .blogTile {
   height: 100%;
+}
 
 .Content {
   height:90%;
@@ -163,15 +165,7 @@ body {
   color:red;
 }
 
-.chatArea{
-  display:inline-block;
-  width:100%;
-  height: 500px;
-  border:1px solid black;
-  position:relative;
-  border-bottom-right-radius: 2px;
-  border-bottom-left-radius: 2px;
-}
+
 
 p.notification.is-success {
   background-color:#8d9fac;
@@ -225,36 +219,61 @@ p.inline{
   overflow:none;
 }
 
-/*Events Description*/
-/* The container <div> - needed to position the dropdown content */
-.dropdown {
-    position: relative;
-    display: inline-block;
+/*chat area*/
+.chatArea{
+  display:inline-block;
+  width:100%;
+  height: 500px;
+  border:1px solid black;
+  position:relative;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 4px;
 }
 
-/* Dropdown Content (Hidden by Default) */
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+.usersCam{
+  width:100%;
+  height:75%;
+  border-bottom: 2px solid black;
+  position:relative;
 }
 
-/* Links inside the dropdown */
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
+.chatBackground{
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: rgba(10, 10, 10, 0.86);
+}
+
+.usersChat{
+  height:25%;
+  width:100%;
+  position:absolute;
+  bottom:0;
+  padding:10px;
+}
+
+textarea.chatForm{
     display: block;
+    line-height: 1.25;
+    max-height: 600px;
+    max-width: 100%;
+    min-width: 100%;
+    padding: 0.625em;
+    resize: vertical;
+    min-height:105px;
 }
 
-/* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #f1f1f1}
+.leaveChat{
+  position:absolute;
+  right:10px;
+  top:10px;
+}
 
-/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
-.show {display:block;}
+.chatText{
+  overflow:auto;
+}
 
 
 /*updated bulma css

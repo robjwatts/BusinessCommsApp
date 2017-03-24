@@ -5512,7 +5512,11 @@ label.panel-block:hover {
           flex-grow: 1;
   -ms-flex-negative: 1;
       flex-shrink: 1;
-      min-height: 35vh;
+
+  max-height: 80vh;
+
+     /* min-height: 35vh;*/
+
 }
 
 .tile.is-ancestor {
