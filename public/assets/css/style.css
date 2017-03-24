@@ -273,6 +273,10 @@ textarea.chatForm{
   overflow:auto;
 }
 
+.chatUser{
+  font-style:oblique;
+}
+
 
 
 /*updated bulma css
