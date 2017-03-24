@@ -4,3 +4,5 @@
 /config/keys.js
 /config/ascendimus.json
 /config/twiliosecrets.env
+/config/.env
+.env
