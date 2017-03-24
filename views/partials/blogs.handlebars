@@ -1,25 +1,96 @@
 {{#each blogs}}
-	<div>
+<div id={{id}}>
+	<div class="blog-author-pic">
 		<img src = "{{User.profilePicUrl}}">
 	</div>
-	<h1 class="blog-title">{{blogTitle}}</h1>
-
-	<p>{{blogText}}</p>
+	<div class="blog-content">
+		<div class="blog-content-header">
+			<span class="blog-title" data-id="{{id}}"data-blog="{{blogTitle}}">{{blogTitle}}</span>
+		</div>
+		<div class="blog-content-text">
+			<span class="blog-text" data-id="{{id}}"data-blog="{{blogText}}">{{blogText}}</span>
+			<textarea class='edit' style="display: none">
+		</div>
+	</div>
 
 	<div class="blog-footer">
-		Authored By: {{User.name}}
-
+		<span id="blog-author-name">Authored By: {{User.name}}</span>
 		
 		<div id="controls">
-			<button id="like-btn">Like</button>
+			<button class="like-btn">Like</button>
 		{{#compare User.id "==" ../current_user.id}}
-		<form>
-			<button id="update-btn">Update</button>
-		</form>
-		<form>
-			<button id="delete-btn">Delete</button>
-		</form>
+		
+			<button class="update-btn" data-id="{{id}}">Update</button>
+		
+		
+			<button class="delete-btn" data-id="{{id}}">Delete</button>
+		
 		{{/compare}}
 		</div>
 	</div>
+
+	<div class="modal" id="updateBlog" data-id="{{id}}">
+       	<div class="modal-background"></div>
+       	<div class="modal-card">
+         	<header class="modal-card-head">
+           		<p class="modal-card-title">Update Blog</p>
+           		<button class="delete"></button>
+         	</header>
+         	<section class="modal-card-body">
+           		<form method="PUT" action='api/blogs/update'>
+
+           	 		<input class="input" type="text" style="display:none" value="{{id}}" name="id">
+
+             		<div class="field">
+               			<label class="label">Blog Title</label>
+               			<p class="control">
+                 			<input class="input" type="text" placeholder="title" id='blog-name' name="blog_title" value={{blogTitle}}>
+               			</p>
+             		</div>
+
+             		<div class="field">
+               			<label class="label">Description</label>
+               			<p class="control">
+                 			<textarea class="textarea"  placeholder="Blog Description" id='blogDescription' name='blog_description' value={{blogText}}></textarea>
+               			</p>
+             		</div>        
+           		</form>
+         	</section>
+        	<footer class="modal-card-foot">
+           		<a class="button is-primary submit-update">Submit</a>
+        	</footer>
+       	</div>
+    </div>
+</div>
 {{/each}}
+
+<script type="text/javascript">
+	
+ 	$('.update-btn').click(openModal);
+ 	$(".submit-update, .delete").click(closeModal);
+
+
+  	function openModal() {
+  		var currentModal = $(this).data("id");
+  		currentModal.addClass("is-active");
+  	}	
+
+  	function closeModal() {
+  		var currentModal = $(this).data("id");
+    	currentModal.removeClass("is-active");
+	}
+
+
+  // This function updates a todo in our database
+  // function updateTodo(todo) {
+  //   $.ajax({
+  //     method: "PUT",
+  //     url: "/api/todos",
+  //     data: todo
+  //   }).done(function() {
+  //     getTodos();
+  //   });
+  // }
+
+
+</script>
