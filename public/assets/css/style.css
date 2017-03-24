@@ -200,7 +200,9 @@ p.notification.is-success {
   padding: 0px;
 }
 
-
+p.inline{
+  float:left;
+}
 
 
 /*Events Tile*/
@@ -210,7 +212,16 @@ p.notification.is-success {
 
 .eventsContent{
   overflow: auto;
+  font-size:90%;
 }
+
+.eventTable{
+  width:100%;
+  overflow:none;
+}
+
+/*Events Description*/
+
 
 
 /*updated bulma css

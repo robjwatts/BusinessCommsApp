@@ -89,3 +89,4 @@ $( ".submitBlog, .delete" ).click(function() {
 	$( "#addBlog" ).removeClass( "is-active" );
 	console.log("clicked")
 });
+
