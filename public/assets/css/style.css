@@ -13,13 +13,10 @@
     src: url(BebasNeue.otf);
 }
 
-html{
-  overflow:hidden;
-}
+
 
 body {
   background-color: white;
-  overflow:hidden;
 }
 
 .title {
@@ -140,15 +137,9 @@ body {
 }
 
 
-
 .Content {
   height:90%;
   overflow:auto;
-}
-
-.calendarCont{
-  border:2px gray solid;
-  height: 550px;
 }
 
 .chatCont{
@@ -208,6 +199,9 @@ p.notification.is-success {
       flex-shrink: 1;
   padding: 0px;
 }
+
+
+
 
 /*Events Tile*/
 .eventsTitle, .blogTitle{
