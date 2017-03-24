@@ -1,4 +1,4 @@
-console.log("hi there ya big eediot");
+console.log("test test");
 var videoClient;
 var activeRoom;
 var previewMedia;
@@ -7,111 +7,133 @@ var roomName;
 
 // Check for WebRTC
 if (!navigator.webkitGetUserMedia && !navigator.mozGetUserMedia) {
-  alert('WebRTC is not available in your browser.');
+    alert('WebRTC is not available in your browser.');
 }
 
 // When we are about to transition away from this page, disconnect
 // from the room, if joined.
 window.addEventListener('beforeunload', leaveRoomIfJoined);
 
-$.getJSON('/token', function (data) {
-  identity = data.identity;
+$.getJSON('/token', function(data) {
+    identity = data.identity;
 
-  // Create a Video Client and connect to Twilio
-  videoClient = new Twilio.Video.Client(data.token);
-  document.getElementById('room-controls').style.display = 'block';
+    // Create a Video Client and connect to Twilio
+    videoClient = new Twilio.Video.Client(data.token);
+    //in the tutorial, this was getElementById "room-controls"
+    document.getElementByClassName('chatArea').style.display = 'block';
 
-  // Bind button to join room
-  document.getElementById('button-join').onclick = function () {
-    roomName = document.getElementById('room-name').value;
+    // Bind button to join room
+    //in the tutorial, this was getElementById "room-controls"
+    roomName = document.getElementByClassName('button is-success').value;
+
+    /////////////in the tutorial, this was getElementById "room-name"
+    roomName = document.getElementByClassName('input chatName').value;
     if (roomName) {
-      log("Joining room '" + roomName + "'...");
+        console.log("Joining room '" + roomName + "'...");
+        ///////
 
-      videoClient.connect({ to: roomName}).then(roomJoined,
-        function(error) {
-          log('Could not connect to Twilio: ' + error.message);
-        });
+        videoClient.connect({
+            to: roomName
+        }).then(roomJoined,
+            function(error) {
+                console.log('Could not connect to Twilio: ' + error.message);
+            });
     } else {
-      alert('Please enter a room name.');
+        alert('Please enter a room name.');
     }
-  };
+};
 
-  // Bind button to leave room
-  document.getElementById('button-leave').onclick = function () {
-    log('Leaving room...');
+// Bind button to leave room
+//need a LEAVE ROOM button..//
+///
+///
+/////////////////////////////////////
+document.getElementById('button-leave').onclick = function() {
+    console.log('Leaving room...');
     activeRoom.disconnect();
-  };
+};
 });
 
 // Successfully connected!
 function roomJoined(room) {
-  activeRoom = room;
+    activeRoom = room;
 
-  log("Joined as '" + identity + "'");
-  document.getElementById('button-join').style.display = 'none';
-  document.getElementById('button-leave').style.display = 'inline';
+    console.log("Joined as '" + identity + "'");
+    document.getElementByClassName('button is-success').style.display = 'none';
 
-  // Draw local video, if not already previewing
-  if (!previewMedia) {
-    room.localParticipant.media.attach('#local-media');
-  }
+    //need leave button
+    document.getElementById('button-leave').style.display = 'inline';
 
-  room.participants.forEach(function(participant) {
-    log("Already in Room: '" + participant.identity + "'");
-    participant.media.attach('#remote-media');
-  });
+    // Draw local video, if not already previewing
+    //need local media line..
+    if (!previewMedia) {
+        room.localParticipant.media.attach('#local-media');
+    }
 
-  // When a participant joins, draw their video on screen
-  room.on('participantConnected', function (participant) {
-    log("Joining: '" + participant.identity + "'");
-    participant.media.attach('#remote-media');
-  });
 
-  // When a participant disconnects, note in log
-  room.on('participantDisconnected', function (participant) {
-    log("Participant '" + participant.identity + "' left the room");
-    participant.media.detach();
-  });
-
-  // When we are disconnected, stop capturing local video
-  // Also remove media for all remote participants
-  room.on('disconnected', function () {
-    log('Left');
-    room.localParticipant.media.detach();
+    //need remote media line
     room.participants.forEach(function(participant) {
-      participant.media.detach();
+        console.log("Already in Room: '" + participant.identity + "'");
+        participant.media.attach('#remote-media');
     });
-    activeRoom = null;
-    document.getElementById('button-join').style.display = 'inline';
-    document.getElementById('button-leave').style.display = 'none';
-  });
+
+
+    //////////////////
+    // When a participant joins, draw their video on screen
+    room.on('participantConnected', function(participant) {
+        console.log("Joining: '" + participant.identity + "'");
+        participant.media.attach('#remote-media');
+    });
+
+    // When a participant disconnects, note in log
+    room.on('participantDisconnected', function(participant) {
+        console.log("Participant '" + participant.identity + "' left the room");
+        participant.media.detach();
+    });
+    ///////////////////////////////////////////////////
+    // When we are disconnected, stop capturing local video
+    // Also remove media for all remote participants
+    room.on('disconnected', function() {
+        console.log('Left');
+        room.localParticipant.media.detach();
+        room.participants.forEach(function(participant) {
+            participant.media.detach();
+        });
+        activeRoom = null;
+        document.getElementByClassName('button is-success').style.display = 'inline';
+
+        ///need leave button
+        document.getElementById('button-leave').style.display = 'none';
+    });
 }
 
 //  Local video preview
-document.getElementById('button-preview').onclick = function () {
-  if (!previewMedia) {
-    previewMedia = new Twilio.Video.LocalMedia();
-    Twilio.Video.getUserMedia().then(
-    function (mediaStream) {
-      previewMedia.addStream(mediaStream);
-      previewMedia.attach('#local-media');
-    },
-    function (error) {
-      console.error('Unable to access local media', error);
-      log('Unable to access Camera and Microphone');
-    });
-  }
+
+//need preview button
+document.getElementById('button-preview').onclick = function() {
+    if (!previewMedia) {
+        previewMedia = new Twilio.Video.LocalMedia();
+        Twilio.Video.getUserMedia().then(
+            function(mediaStream) {
+                previewMedia.addStream(mediaStream);
+                previewMedia.attach('#local-media');
+            },
+            function(error) {
+                console.error('Unable to access local media', error);
+                console.log('Unable to access Camera and Microphone');
+            });
+    }
 };
 
-// Activity log
-function log(message) {
-  var logDiv = document.getElementById('log');
-  logDiv.innerHTML += '<p>&gt;&nbsp;' + message + '</p>';
-  logDiv.scrollTop = logDiv.scrollHeight;
-}
+// // Activity log .. no need for this i don't think so im commenting it out. 
+// function log(message) {
+//   var logDiv = document.getElementById('log');
+//   logDiv.innerHTML += '<p>&gt;&nbsp;' + message + '</p>';
+//   logDiv.scrollTop = logDiv.scrollHeight;
+// }
 
 function leaveRoomIfJoined() {
-  if (activeRoom) {
-    activeRoom.disconnect();
-  }
+    if (activeRoom) {
+        activeRoom.disconnect();
+    }
 }
