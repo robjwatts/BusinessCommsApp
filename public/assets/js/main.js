@@ -91,8 +91,18 @@ $( ".submitBlog, .delete" ).click(function() {
 });
 
 //Chat room
+$( ".leaveChat" ).click(function() {
+	$("div.localView").remove();
+	console.log("clicked")
+});
+
 $( ".delete, .submitChat" ).click(function() {
 	$("div.modal-background").remove();
 	console.log("clicked")
+
+	// $('<div class="column localView"><a><div class="leaveChat"><i class="fa fa-times-circle" aria-hidden="true"></i></div></a><div id="local-media"></div></div>').insertAfter(".remoteView");
+
 });
+
+
 

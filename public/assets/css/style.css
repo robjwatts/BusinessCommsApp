@@ -163,15 +163,7 @@ body {
   color:red;
 }
 
-.chatArea{
-  display:inline-block;
-  width:100%;
-  height: 500px;
-  border:1px solid black;
-  position:relative;
-  border-bottom-right-radius: 5px;
-  border-bottom-left-radius: 4px;
-}
+
 
 p.notification.is-success {
   background-color:#8d9fac;
@@ -226,10 +218,21 @@ p.inline{
 }
 
 /*chat area*/
+.chatArea{
+  display:inline-block;
+  width:100%;
+  height: 500px;
+  border:1px solid black;
+  position:relative;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 4px;
+}
+
 .usersCam{
   width:100%;
   height:75%;
   border-bottom: 2px solid black;
+  position:relative;
 }
 
 .chatBackground{
@@ -239,6 +242,35 @@ p.inline{
   right: 0;
   top: 0;
   background-color: rgba(10, 10, 10, 0.86);
+}
+
+.usersChat{
+  height:25%;
+  width:100%;
+  position:absolute;
+  bottom:0;
+  padding:10px;
+}
+
+textarea.chatForm{
+    display: block;
+    line-height: 1.25;
+    max-height: 600px;
+    max-width: 100%;
+    min-width: 100%;
+    padding: 0.625em;
+    resize: vertical;
+    min-height:105px;
+}
+
+.leaveChat{
+  position:absolute;
+  right:10px;
+  top:10px;
+}
+
+.chatText{
+  overflow:auto;
 }
 
 
