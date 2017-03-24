@@ -17,6 +17,7 @@
 
 body {
   background-color: white;
+
   height: 100vh;
 }
 
@@ -137,10 +138,9 @@ body {
   overflow:auto;
 }
 
+
 .blogTile {
   height: 100%;
-}
-
 
 .Content {
   height:90%;
