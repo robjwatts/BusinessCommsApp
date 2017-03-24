@@ -1,9 +1,9 @@
 {{#each blogs}}
-<div id={{id}}>
+
 	<br>
 	<div class="blog-content">
-		<h1 class="blog-title" data-id="{{id}}"data-blog="{{blogTitle}}">{{blogTitle}}</h1>
-		<div class="blog-text" data-id="{{id}}"data-blog="{{blogText}}">{{blogText}}</div>
+		<h1 class="blog-title" data-id="{{id}}">{{blogTitle}}</h1>
+		<div class="blog-text" data-id="{{id}}">{{blogText}}</div>
 	</div>
 
 	<div class="blog-footer">
@@ -23,16 +23,15 @@
 		</div>
 	</div>
 
-	<div class="modal" id="updateBlog" data-id="{{id}}">
+	<div class="modal" id="updateBlog{{id}}">
        	<div class="modal-background"></div>
        	<div class="modal-card">
          	<header class="modal-card-head">
            		<p class="modal-card-title">Update Blog</p>
-           		<button class="delete"></button>
+           		<button class="delete" data-id="{{id}}"></button>
          	</header>
          	<section class="modal-card-body">
-           		<form method="PUT" action='api/blogs/update'>
-
+           		<form method="post" action='/api/blogs/update?_method=PUT' id="updateForm{{id}}">
            	 		<input class="input" type="text" style="display:none" value="{{id}}" name="id">
 
              		<div class="field">
@@ -45,56 +44,49 @@
              		<div class="field">
                			<label class="label">Description</label>
                			<p class="control">
-                 			<textarea class="textarea"  placeholder="Blog Description" id='blogDescription' name='blog_description' value={{blogText}}></textarea>
+                 			<textarea class="textarea"  placeholder="Blog Description" id='blogDescription' name='blog_text' value={{blogText}}></textarea>
                			</p>
              		</div>        
            		</form>
          	</section>
         	<footer class="modal-card-foot">
-           		<a class="button is-primary submit-update">Submit</a>
+           		<a class="button is-primary submit-update" data-id={{id}}>Submit</a>
         	</footer>
        	</div>
     </div>
-</div>
+
 {{/each}}
 
 <script type="text/javascript">
 	
- 	$('.update-blog-btn').click(openModal);
- 	$(".submit-update, .delete").click(closeModal);
+ 	$('.update-blog-btn').click(openUpdate);
+ 	$(".submit-update, .delete").click(closeUpdate);
  	$(".delete-blog-btn").click(deleteBlog);
 
+ 	$(".submit-update").click(function(){
+ 		var id = $(this).attr("data-id");
+ 		$("#updateForm" + id).submit();
+ 	});
 
-  	function openModal() {
-  		var currentModal = $(this).data("id");
-  		currentModal.addClass("is-active");
-  	}	
 
-  	function closeModal() {
-  		var currentModal = $(this).data("id");
-    	currentModal.removeClass("is-active");
+  	function openUpdate() {
+  		var id = $(this).data("id");
+  		$("#updateBlog"+id).addClass("is-active");
+  	}
+
+  	function closeUpdate() {
+  		var id = $(this).data("id");
+    	$("#updateBlog"+id).removeClass("is-active");
 	}
 
-	function deleteBlog() {
-		var currentBlog = $(this).data("id");
-		$.ajax({
-			method: "DELETE",
-			url: "/api/blogs/delete",
-			data: currentBlog
-		}).done(function(){});
+	// function deleteBlog() {
+	// 	var currentBlog = $(this).data("id");
+	// 	$.ajax({
+	// 		method: "DELETE",
+	// 		url: "/api/blogs/delete",
+	// 		data: currentBlog
+	// 	}).done(function(){});
 
-	}
-
-  // This function updates a todo in our database
-  // function updateTodo(todo) {
-  //   $.ajax({
-  //     method: "PUT",
-  //     url: "/api/todos",
-  //     data: todo
-  //   }).done(function() {
-  //     getTodos();
-  //   });
-  // }
-
+	// }
 
 </script>

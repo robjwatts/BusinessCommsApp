@@ -17,6 +17,7 @@
 
 body {
   background-color: white;
+  height: 100vh;
 }
 
 .title {
@@ -134,6 +135,10 @@ body {
   background-color:#464f56;
   color:white;
   overflow:auto;
+}
+
+.blogTile {
+  height: 100%;
 }
 
 

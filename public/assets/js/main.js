@@ -4,26 +4,6 @@ $( ".login" ).click(function() {
 	console.log("clicked")
 });
 
-$( ".blogTile" ).click(function() {
-	$( "#add-blog-modal" ).addClass( "is-active" );
-	console.log("clicked")
-});
-
-$( ".eventTile" ).click(function() {
-	$( "#add-event-modal" ).addClass( "is-active" );
-	console.log("clicked")
-});
-
-$(".is-success, .delete").click(function() {
-	$( "#add-event-modal" ).removeClass( "is-active" );
-	console.log("clicked")
-});
-
-$("#blog-form").submit(function() {
-	$( "#add-blog-modal" ).removeClass("is-active");
-	console.log("form submitted")
-});
-
 $( ".is-success, .delete" ).click(function() {
 	$( ".loginModal" ).removeClass( "is-active" );
 	console.log("clicked")
@@ -86,4 +66,26 @@ $( ".retweet" ).click(function() {
 		$( ".retweet" ).addClass( "is-clicked" );
 		console.log("clicked")
 	}		
+});
+
+//Add Event Modal 
+$( ".addEvent" ).click(function() {
+	$( "#addEvent" ).addClass( "is-active" );
+	console.log("clicked")
+});
+
+$( ".submitEvent, .delete" ).click(function() {
+	$( "#addEvent" ).removeClass( "is-active" );
+	console.log("clicked")
+});
+
+//Add blog Modal 
+$( ".addBlog" ).click(function() {
+	$( "#addBlog" ).addClass( "is-active" );
+	console.log("clicked")
+});
+
+$( ".submitBlog, .delete" ).click(function() {
+	$( "#addBlog" ).removeClass( "is-active" );
+	console.log("clicked")
 });

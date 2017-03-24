@@ -20,7 +20,7 @@
 
 <div class="container">
   <div class="columns is-mobile">
-    <div class="welcome is-12 has-text-centered "><h1 class="title is-1">Welcome {{user.name}}!}}</h1></div>
+    <div class="welcome is-12 has-text-centered "><h1 class="title is-1">Welcome {{current_user.name}}!</h1></div>
   </div>
 
   <div class="tile is-ancestor">
@@ -34,7 +34,7 @@
           </p>
         </div>
         <br>
-        {{> events}}
+        {{!-- {{> events}} --}}
       </div>
 
       {{!-- tweet modal --}}
@@ -149,7 +149,7 @@
             <button class="delete"></button>
           </header>
           <section class="modal-card-body">
-            <form method="POST" action='api/blogs/new'>
+            <form method="POST" action='/api/blogs/new' id="blogForm">
               <div class="field">
                 <label class="label">Blog Title</label>
                 <p class="control">
@@ -159,7 +159,7 @@
               <div class="field">
                 <label class="label">Description</label>
                 <p class="control">
-                  <textarea class="textarea"  placeholder="Blog Description" id='blogDescription' name='blog_description'></textarea>
+                  <textarea class="textarea"  placeholder="Blog Description" id='blogDescription' name='blog_text'></textarea>
                 </p>
               </div>        
             </form>
@@ -168,7 +168,7 @@
             <a class="button is-primary submitBlog">Submit</a>
           </footer>
         </div>
-      </div>
+      </div> {{!-- MODAL ENDS HERE --}}
 
       {{!-- blog tile --}}
       <div class="blogTile tile is-child notification">
@@ -180,11 +180,21 @@
           </p>
         </div>
         <div class="blogContent">
-            
             {{> blogs}}
-          
         </div>
+
       </div>
+
+    </div>
+
     </div>
   </div>
 </div>
+
+<script type="text/javascript">
+  
+ $(".submitBlog").click(function(){
+    $("#blogForm").submit();
+ });
+
+</script>

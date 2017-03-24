@@ -33,16 +33,19 @@ module.exports = function(app, hbs) {
 
 			Promise.all(promises).then((data)=>{
 
-				var blogData = {}, eventData = {};
+				var blogData = [], eventData = [];
 
 				if(data[0][0]){
 					blogData = data[0];
-					// console.log(blogData);
+					
 				}
+
 				if(data[1][0]){
 					eventData = data[1];
-					// console.log(eventData);
+					
 				}
+
+				// console.log(blogData)
 
 				var helpers={
 			        compare: function(id1, operator, id2, options){
@@ -67,7 +70,7 @@ module.exports = function(app, hbs) {
 
 	});
  
-  	router.post("/api/blogs/new", (req,res)=>{
+  	router.post("/api/blogs/new", (req,res,next)=>{
  		// Take the request...
 	    var blog = req.body;
 
@@ -80,33 +83,58 @@ module.exports = function(app, hbs) {
 	      blogText: blog.blog_text,
 	      likes: 0,
 	      likedBy: null
+	    }).then((success)=>{
+
+	    	res.redirect("/home");
 	    });
-
-	    res.redirect("/home");
  	});
 
- 	// router.post("/api/events/new", (req,res)=>{
- 	// 	// Take the request...
-	 //    var event = req.body;
+ 	router.post("/api/events/new", (req,res)=>{
+        // Take the request...
+        var event = req.body;
+        // Then add the blog to the database using sequelize
+        db.UpcomingEvents.create({
+          userID: req.user.id,
+          title: event.title,
+          description: event.description,
+          timeRange: event.timeRange,
+          location: event.location
+        }).then((success)=>{
+        	res.redirect("/home");
+    	})
+    });
+    
+    router.put("/api/blogs/update", (req, res)=>{
+        // db.Blog.update
+        var blog = req.body;
+        console.log("put body", blog);
 
-	 //    // Then add the blog to the database using sequelize
-	 //    db.UpcomingEvents.create({
-	 //      userId: req.user.googleId,
-	 //      title: blog.blog_title,
-	 //      blogText: blog.blog_text,
-	 //      tags: null
-	 //    });
+        db.Blog.update({
+            blogTitle: blog.blog_title,
+            blogText:blog.blog_text
+        },{where:{id:blog.id}
+        }).then((success)=>{
+        	res.redirect("/home");
+        });
+    });
+    
+    router.delete("/api/blogs/delete", (req, res)=>{
+        var blog = req.body;
+        db.Blog.destroy({
+            where:{ id: blog.id}
+        }).then((success)=>{
+        	res.redirect("/home");
+        });
+    });
 
-	 //    res.redirect("/home");
- 	// });
-
- 	router.put("/api/blogs/update", (req, res)=>{
- 		
- 	});
-
- 	router.delete("api/blogs/delete", (req, res)=>{
- 		
- 	});
+    router.delete("/api/events/delete", (req, res)=>{
+        var events = req.body;
+        db.UpcomingEvents.destroy({
+            where:{userID: req.user.id}
+        }).then((success)=>{
+        	res.redirect("/home");
+        });
+    });
 
  	app.use("/", router);
 
@@ -124,9 +152,10 @@ var getAllBlogs = function() {
 		db.Blog.findAll({include: [{
 	        model: db.User,
 	        required: true
-	    }]})
-	    .then((blogs)=>{
-	
+	    }]
+
+		}).then((blogs)=>{
+			// console.log("success", blogs);
 	    	resolve(blogs);
 	          
 	 	}).catch((err)=>{
@@ -147,9 +176,9 @@ var getAllEvents = function() {
 		db.UpcomingEvents.findAll({include: [{
 	        model: db.User,
 	        required: true
-	    }]})
-	    .then((events)=>{
-	    	// console.log(events);
+	    }]
+		}).then((events)=>{
+	    	// console.log('success',events);
 	    	resolve(events);
 	 	}).catch((err)=>{
 	 		if(err) {reject(err)}
