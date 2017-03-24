@@ -1,0 +1,92 @@
+{{#each blogs}}
+
+	<br>
+	<div class="blog-content">
+		<h1 class="blog-title" data-id="{{id}}">{{blogTitle}}</h1>
+		<div class="blog-text" data-id="{{id}}">{{blogText}}</div>
+	</div>
+
+	<div class="blog-footer">
+		<img class = "blog-author-pic" src = "{{User.profilePicUrl}}">
+		<span id="blog-author-name">Authored By: {{User.name}}</span>
+		
+		<div id="controls">
+			<button class="like-btn">Like</button>
+		{{#compare User.id "==" ../current_user.id}}
+		
+			<button class="update-blog-btn" data-id="{{id}}">Update</button>
+		
+		
+			<button class="delete-blog-btn" data-id="{{id}}">Delete</button>
+		
+		{{/compare}}
+		</div>
+	</div>
+
+	<div class="modal" id="updateBlog{{id}}">
+       	<div class="modal-background"></div>
+       	<div class="modal-card">
+         	<header class="modal-card-head">
+           		<p class="modal-card-title">Update Blog</p>
+           		<button class="delete" data-id="{{id}}"></button>
+         	</header>
+         	<section class="modal-card-body">
+           		<form method="post" action='/api/blogs/update?_method=PUT' id="updateForm{{id}}">
+           	 		<input class="input" type="text" style="display:none" value="{{id}}" name="id">
+
+             		<div class="field">
+               			<label class="label">Blog Title</label>
+               			<p class="control">
+                 			<input class="input" type="text" placeholder="title" id='blog-name' name="blog_title" value={{blogTitle}}>
+               			</p>
+             		</div>
+
+             		<div class="field">
+               			<label class="label">Description</label>
+               			<p class="control">
+                 			<textarea class="textarea"  placeholder="Blog Description" id='blogDescription' name='blog_text' value={{blogText}}></textarea>
+               			</p>
+             		</div>        
+           		</form>
+         	</section>
+        	<footer class="modal-card-foot">
+           		<a class="button is-primary submit-update" data-id={{id}}>Submit</a>
+        	</footer>
+       	</div>
+    </div>
+
+{{/each}}
+
+<script type="text/javascript">
+	
+ 	$('.update-blog-btn').click(openUpdate);
+ 	$(".submit-update, .delete").click(closeUpdate);
+ 	$(".delete-blog-btn").click(deleteBlog);
+
+ 	$(".submit-update").click(function(){
+ 		var id = $(this).attr("data-id");
+ 		$("#updateForm" + id).submit();
+ 	});
+
+
+  	function openUpdate() {
+  		var id = $(this).data("id");
+  		$("#updateBlog"+id).addClass("is-active");
+  	}
+
+  	function closeUpdate() {
+  		var id = $(this).data("id");
+    	$("#updateBlog"+id).removeClass("is-active");
+	}
+
+	// function deleteBlog() {
+	// 	var currentBlog = $(this).data("id");
+	// 	$.ajax({
+	// 		method: "DELETE",
+	// 		url: "/api/blogs/delete",
+	// 		data: currentBlog
+	// 	}).done(function(){});
+
+	// }
+
+</script>
