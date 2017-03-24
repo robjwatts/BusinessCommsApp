@@ -150,8 +150,8 @@ body {
 }
 
 .chatCont{
-  height: 550px;
-  width:500px;
+  height: 575px;
+  width:950px;
   margin-right:10px;
 }
 
@@ -252,6 +252,7 @@ p.inline{
   position:absolute;
   bottom:0;
   padding:10px;
+  right:0;
 }
 
 textarea.chatForm{
@@ -272,7 +273,6 @@ textarea.chatForm{
 }
 
 .chatText{
-  overflow:auto;
 }
 
 .chatUser{
