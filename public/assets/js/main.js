@@ -90,3 +90,9 @@ $( ".submitBlog, .delete" ).click(function() {
 	console.log("clicked")
 });
 
+//Chat room
+$( ".delete, .submitChat" ).click(function() {
+	$("div.modal-background").remove();
+	console.log("clicked")
+});
+

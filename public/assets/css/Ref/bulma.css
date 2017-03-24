@@ -4529,7 +4529,7 @@ label.panel-block:hover {
 
 .tabs.is-large {
   font-size: 1.5rem;
-}f
+}
 
 .column {
   display: block;
@@ -5510,6 +5510,7 @@ label.panel-block:hover {
           flex-grow: 1;
   -ms-flex-negative: 1;
       flex-shrink: 1;
+  max-height: 80vh;
 }
 
 .tile.is-ancestor {

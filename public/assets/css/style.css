@@ -17,6 +17,7 @@
 
 body {
   background-color: white;
+  height:100vh;
 }
 
 .title {
@@ -136,6 +137,10 @@ body {
   overflow:auto;
 }
 
+.blogTile{
+  height:100%;
+}
+
 
 .Content {
   height:90%;
@@ -164,8 +169,8 @@ body {
   height: 500px;
   border:1px solid black;
   position:relative;
-  border-bottom-right-radius: 2px;
-  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 4px;
 }
 
 p.notification.is-success {
@@ -220,7 +225,21 @@ p.inline{
   overflow:none;
 }
 
-/*Events Description*/
+/*chat area*/
+.usersCam{
+  width:100%;
+  height:75%;
+  border-bottom: 2px solid black;
+}
+
+.chatBackground{
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: rgba(10, 10, 10, 0.86);
+}
 
 
 

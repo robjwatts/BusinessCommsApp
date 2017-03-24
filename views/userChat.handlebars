@@ -85,8 +85,21 @@
       Chat Area
     </p>
     <div class="chatArea">
+      
+
+      <div class="usersCam chatBackground">
+        <div class="columns">
+          <div class="column">
+            <div id="remote-media"></div>
+          </div>
+          <div class="column">
+            <div id="local-media"></div>
+          </div>
+        </div>
+      </div>
+
       <div class="modal-background">
-        <div class="chatroomEntry">
+        <div class="chatroomEntry is-overlay">
           <header class="modal-card-head">
             <p class="modal-card-title has-text-centered">Enter Name of Chatroom</p>
             <button class="delete"></button>
@@ -99,11 +112,12 @@
             </div>
           </section>
           <footer class="modal-card-foot">
-            <a class="button is-success">Submit</a>
+            <a class="button is-success submitChat">Submit</a>
             <a class="button canel">Cancel</a>
           </footer>
         </div>
       </div>
+      
     </div>
   </div>
 
