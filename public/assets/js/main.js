@@ -67,3 +67,25 @@ $( ".retweet" ).click(function() {
 		console.log("clicked")
 	}		
 });
+
+//Add Event Modal 
+$( ".addEvent" ).click(function() {
+	$( "#addEvent" ).addClass( "is-active" );
+	console.log("clicked")
+});
+
+$( ".submitEvent, .delete" ).click(function() {
+	$( "#addEvent" ).removeClass( "is-active" );
+	console.log("clicked")
+});
+
+//Add blog Modal 
+$( ".addBlog" ).click(function() {
+	$( "#addBlog" ).addClass( "is-active" );
+	console.log("clicked")
+});
+
+$( ".submitBlog, .delete" ).click(function() {
+	$( "#addBlog" ).removeClass( "is-active" );
+	console.log("clicked")
+});
