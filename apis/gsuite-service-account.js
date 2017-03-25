@@ -69,6 +69,8 @@ function createJWT() {
 
 	//get our private key to sign our JWT
 	var secret = process.env.PRIVATE_KEY;
+	console.log('secret', secret);
+	console.log('payload', payload);
 
 	//sign() is jsonwebtoken function to encrypt to base64 header, claim set and secret
 	var jsonWebToken = jwt.sign(payload, secret, { algorithm: 'RS256', expiresIn: '1h' });
