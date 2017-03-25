@@ -9,7 +9,7 @@ process.env.TWILIO_CONFIGURATION_SID
 // Dependencies
 //dotenv(weird syntax, i know, but it works --RW)
 ///this line also needs to be commented out when it comes to be deployed on heroku!
-require('dotenv').load();
+//require('dotenv').load();
 //others
 const express = require("express");
 const exphbs = require("express-handlebars");
@@ -76,7 +76,7 @@ if (process.env.NODE_ENV === 'development') {
   app.use(errorhandler())
 }
 
-db.sequelize.sync({ force: true }).then(function() {
+db.sequelize.sync().then(function() {
 
   app.listen(port, function() {
     console.log("App listening on PORT " + port);
