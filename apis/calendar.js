@@ -1,6 +1,6 @@
 const request = require('request');
 const google = require('googleapis');
-const keys = require("../config/keys.js");
+//const keys = require("../config/keys.js");
 
 
 function listAllEvents(req, res, user) {

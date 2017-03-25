@@ -1,8 +1,8 @@
-const keys = require("../config/keys.js");
+//const keys = require("../config/keys.js");
 const jwt = require('jsonwebtoken');
 const request = require("request");
 const Drive = require("./drive.js");
-
+const path = require('path');
 //will create JWT to send to GOOGLE and receive back access token
 function createJWT() {
 
@@ -67,11 +67,12 @@ function createJWT() {
 	  "aud":"https://www.googleapis.com/oauth2/v4/token"
 	}
 
-	//get our private key to sign our JWT
-	var secret = process.env.PRIVATE_KEY;
+	var fs = require('fs');
+	var privateKey = fs.readFileSync(path.join(__dirname, 'server.key'));
+
 
 	//sign() is jsonwebtoken function to encrypt to base64 header, claim set and secret
-	var jsonWebToken = jwt.sign(payload, secret, { algorithm: 'RS256', expiresIn: '1h' });
+	var jsonWebToken = jwt.sign(payload, privateKey, { algorithm: 'RS256', expiresIn: '1h' });
 
 	//make a post request to Google to retrieve access token
 	getAccessToken(jsonWebToken).then((data)=>{
