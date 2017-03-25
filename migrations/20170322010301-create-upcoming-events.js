@@ -17,7 +17,16 @@ module.exports = {
       description: {
         type: Sequelize.STRING
       },
-      timeRange: {
+      startDate: {
+        type: Sequelize.STRING
+      },
+      endDate: {
+        type: Sequelize.STRING
+      },
+      startTime: {
+        type: Sequelize.STRING
+      },
+      endTime: {
         type: Sequelize.STRING
       },
       location: {
