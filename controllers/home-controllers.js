@@ -118,21 +118,22 @@ module.exports = function(app, hbs) {
         });
     });
     
-    router.delete("/api/blogs/delete", (req, res)=>{
-        var blog = req.body;
+    router.delete("/api/blogs/delete/:id", (req, res)=>{
+  
         db.Blog.destroy({
-            where:{ id: blog.id}
-        }).then((success)=>{
-        	res.redirect("/home");
-        });
+            where:{ id: req.params.id}
+        })
+        	
+        // res.redirect("/home");
+        
     });
 
-    router.delete("/api/events/delete", (req, res)=>{
-        var events = req.body;
+    router.delete("/api/events/delete/:id", (req, res)=>{
+       
         db.UpcomingEvents.destroy({
-            where:{userID: req.user.id}
+            where:{userID: req.params.id}
         }).then((success)=>{
-        	res.redirect("/home");
+        	// res.redirect("/home");
         });
     });
 

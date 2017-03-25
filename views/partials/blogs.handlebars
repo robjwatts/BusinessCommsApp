@@ -1,5 +1,5 @@
 {{#each blogs}}
-
+<div id="blog{{id}}">
 	<br>
 	<div class="blog-content">
 		<h1 class="blog-title">{{blogTitle}}</h1>
@@ -14,15 +14,15 @@
 			<a class="btn like-btn">Like</a>
 		{{#compare User.id "==" ../current_user.id}}
 		
-			<a class="btn updateBtn" data-blogId="{{id}}" data-blogTitle="{{blogTitle}}" data-blogText="{{blogText}}">Update</a>
+			<a class="btn updateBtn" data-blogid="{{id}}" data-blogtitle="{{blogTitle}}" data-blogtext="{{blogText}}">Update</a>
 		
 		
-			<a class="btn deleteBtn" data-id="{{id}}">Delete</a>
+			<a class="btn deleteBtn" data-blogid="{{id}}">Delete</a>
 		
 		{{/compare}}
 		</div>
 	</div>
-
+<div>
 	{{/each}}
 	<div class="modal" id="updateBlog">
        	<div class="modal-background"></div>
@@ -65,32 +65,42 @@
  		closeUpdate();
  	});
 
-  $('.updateBtn').each(function() {
-    var $this = $(this);
-    $this.on("click", function() {
-      $("#updateId").val($($this).data("blogId"));
-  		$("#updateTitle").val($($this).data("blogTitle"));
-  		$("#updateText").val($($this).data("blogText"));
-    	$("#updateBlog").addClass("is-active");
+  // $('.updateBtn').each(function() {
+  //   var $this = $(this);
+  //   $this.on("click", function() {
+  //     $("#updateId").val($($this).data("blogId"));
+  // 		$("#updateTitle").val($($this).data("blogTitle"));
+  // 		$("#updateText").val($($this).data("blogText"));
+  //   	$("#updateBlog").addClass("is-active");
+  //   });
+  // });
+
+  $('.updateBtn').on("click", function() { 
+      console.log($(this)); 
+     // debugger;
+     
+      $("#updateId").val($(this).data("blogid"));
+          $("#updateTitle").val($(this).data("blogtitle"));
+          $("#updateText").val($(this).data("blogtext"));
+        $("#updateBlog").addClass("is-active");
     });
-  });
 
   function closeUpdate() {
     	$("#updateBlog").removeClass("is-active");
 	}
 
-	$(".deleteBtn").each(function () {
-    var $this = $(this);
-    $this.on("click", function(e) {
-      e.preventDefault();
-		  var currentBlog = $($this).data("id");
+	$(".deleteBtn").on('click',function () {
+    var id = $(this).data("blogid");
+    // var currentURL = window.location.origin;
 		  $.ajax({
-		  	method: "DELETE",
-		  	url: "/api/blogs/delete",
-		  	data: currentBlog
-		  }).done(function(){});
+		  	method: "POST",
+		  	url: "/api/blogs/delete/"+id+"/?_method=DELETE",
+		  }).done(function(){
+
+        $("#blog"+id).remove();
+
+      });
 
 	 });
-  });
 
 </script>
