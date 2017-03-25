@@ -45,7 +45,7 @@ module.exports = function(app, hbs) {
 					
 				}
 
-				// console.log(blogData)
+				console.log(eventData)
 
 				var helpers={
 			        compare: function(id1, operator, id2, options){
@@ -94,11 +94,14 @@ module.exports = function(app, hbs) {
         var event = req.body;
         // Then add the blog to the database using sequelize
         db.UpcomingEvents.create({
-          userID: req.user.id,
-          title: event.title,
-          description: event.description,
-          timeRange: event.timeRange,
-          location: event.location
+          userId: req.user.id,
+          title: event.event_name,
+          description: event.event_description,
+          startDate: event.start_date,
+          endDate: event.end_date,
+          startTime: event.start_time,
+          endTime: event.end_time,
+          location: event.event_location
         }).then((success)=>{
         	res.redirect("/home");
     	})
@@ -118,21 +121,22 @@ module.exports = function(app, hbs) {
         });
     });
     
-    router.delete("/api/blogs/delete", (req, res)=>{
-        var blog = req.body;
+    router.delete("/api/blogs/delete/:id", (req, res)=>{
+  
         db.Blog.destroy({
-            where:{ id: blog.id}
-        }).then((success)=>{
-        	res.redirect("/home");
-        });
+            where:{ id: req.params.id}
+        })
+        	
+        // res.redirect("/home");
+        
     });
 
-    router.delete("/api/events/delete", (req, res)=>{
-        var events = req.body;
+    router.delete("/api/events/delete/:id", (req, res)=>{
+       
         db.UpcomingEvents.destroy({
-            where:{userID: req.user.id}
+            where:{userID: req.params.id}
         }).then((success)=>{
-        	res.redirect("/home");
+        	// res.redirect("/home");
         });
     });
 
