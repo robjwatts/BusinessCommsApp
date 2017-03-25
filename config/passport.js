@@ -25,7 +25,7 @@ passport.deserializeUser(function(user, done) {
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://localhost:8000/auth/google/callback"
+    callbackURL: "https://frozen-mesa-66452.herokuapp.com/auth/google/callback"
   },
   function(accessToken, refreshToken, profile, done) {
   	console.log('profile', profile, accessToken, refreshToken);
