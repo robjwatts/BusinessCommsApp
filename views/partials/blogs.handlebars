@@ -23,11 +23,11 @@
             </a>
           {{#compare User.id "==" ../current_user.id}}
           
-            <a class="level-item update-blog-btn" data-id="{{id}}">
+            <a class="level-item updateBtn" data-blogid="{{id}}" data-blogtitle="{{blogTitle}}" data-blogtext="{{blogText}}">
                   <span class="icon is-small"><i class="fa fa-refresh" aria-hidden="true"></i></span>
             </a>
 
-            <a class="level-item delete-blog-btn" data-id="{{id}}">
+            <a class="level-item deleteBtn" data-id="{{id}}">
                   <span class="icon is-small"> <i class="fa fa-times-circle" aria-hidden="true"></i></span>
             </a>
           
