@@ -120,3 +120,17 @@ $( "#previewVid" ).click(function() {
 	// $('<div class="column localView"><a><div class="leaveChat"><i class="fa fa-times-circle" aria-hidden="true"></i></div></a><div id="local-media"></div></div>').insertAfter(".remoteView");
 
 });
+
+
+//about modal
+//Log in modal
+$( ".about" ).click(function() {
+	$( "#about" ).addClass( "is-active" );
+	console.log("clicked")
+});
+
+$( ".is-success, .delete" ).click(function() {
+	$( "#about" ).removeClass( "is-active" );
+	console.log("clicked")
+});
+
