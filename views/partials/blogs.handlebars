@@ -14,7 +14,7 @@
 			<a class="btn like-btn">Like</a>
 		{{#compare User.id "==" ../current_user.id}}
 		
-			<a class="btn updateBtn" data-blogId="{{id}}" data-blogTitle="{{blogTitle}}" data-blogText""{{blogText}}>Update</a>
+			<a class="btn updateBtn" data-blogId="{{id}}" data-blogTitle="{{blogTitle}}" data-blogText="{{blogText}}">Update</a>
 		
 		
 			<a class="btn deleteBtn" data-id="{{id}}">Delete</a>
@@ -69,9 +69,9 @@
     var $this = $(this);
     $this.on("click", function (e) {
  	    e.preventDefault();
-      $("input#updateId").val($(this).data("blogId"));
-  		$("input#updateTitle").val($(this).data("blogTitle"));
-  		$("textarea#updateText").val($(this).data("blogText"));
+      $("#updateId").val($(this).data("blogId"));
+  		$("#updateTitle").val($(this).data("blogTitle"));
+  		$("#updateText").val($(this).data("blogText"));
     	$("#updateBlog").addClass("is-active");
     });
   });
