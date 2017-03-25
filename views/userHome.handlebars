@@ -36,9 +36,33 @@
         </div>
         <br>
 
-        {{> events}}
 
+       {{> events}}
+        <div class="eventsContent">
+          <!-- Content -->
+          <div class="columns">
+            <div class="column is-2">
+              <p class="">4/25</p>
+            </div>
+            <div class="column is-4">
+              <p class="">Earth Day</p>
+            </div>
+            <div class="column">
+              <p class="">Lincoln Park</p>
+            </div>
+            {{!-- <div class="column is-1">
+              <a class='moreInfo dropdown-button btn' href='#' data-activates='dropdown1'>
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+                    <path d="M0 0h18v18H0z" fill="none"/>
+                    <path d="M4 7.5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5S5.5 9.83 5.5 9 4.83 7.5 4 7.5zm10 0c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5zm-5 0c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5S9.83 7.5 9 7.5z"/>
+                </svg>
+              </a>
+            </div> --}}
+          </div>          
+        </div>
       </div>
+      
+    
 
       {{!-- tweet modal --}}
       <div class="modal" id="addEvent">
@@ -192,8 +216,143 @@
           </p>
         </div>
         <div class="blogContent">
+        {{> blogs}}
 
-            {{> blogs}}
+          <br>
+            <article class="media">
+              <figure class="media-left">
+                <p class="image is-64x64">
+                  <img class = "blog-author-pic" src = "https://channelo.dstv.com/wp-content/uploads/2016/04/dj-khaled.jpg">
+                </p>
+              </figure>
+              <div class="media-content">
+                <div class="content eventsContent">
+                  <p>
+                    <strong class="blog-title title is-1" data-id="1">Quote #1</strong>
+                    <br>
+                    <small class="subtitle is-4 blog-text" data-id="1">I’M BLESSED FOR A LOT OF REASONS. YOU CAN SEE THE BLESSINGS IN MY HOUSE, MY FAMILY, MY MUSICAL GARDEN, AND FLORIDA, BUT AN UNSEEN BLESSING MIGHT BE ONE OF THE MOST IMPORTANT—MY MEMORY. ANYONE WHO’S EVER WORKED WITH ME—AND THAT’S A LOT OF PEOPLE—WILL TELL YOU THE SAME THING. I REMEMBER. I WANT THIS TO BE PUT IN BOLD IN THE BOOK IN BIG LETTERS: I REMEMBER. MAJOR KEY. </small>
+                  </p>
+                </div>
+                <nav class="level is-mobile">
+                  <div class="level-left">
+                    <a class="level-item heart">
+                          <span class="icon is-small"><i class="fa fa-heart"></i></span>
+                    </a>
+                  
+                    <a class="level-item update-blog-btn" data-id="1">
+                          <span class="icon is-small"><i class="fa fa-refresh" aria-hidden="true"></i></span>
+                    </a>
+
+                    <a class="level-item delete-blog-btn" data-id="1">
+                          <span class="icon is-small"> <i class="fa fa-times-circle" aria-hidden="true"></i></span>
+                    </a>
+                  
+                  </div>
+                </nav>
+              </div>
+            </article>
+            <hr>
+             <br>
+            <article class="media">
+              <figure class="media-left">
+                <p class="image is-64x64">
+                  <img class = "blog-author-pic" src = "https://channelo.dstv.com/wp-content/uploads/2016/04/dj-khaled.jpg">
+                </p>
+              </figure>
+              <div class="media-content">
+                <div class="content eventsContent">
+                  <p>
+                    <strong class="blog-title title is-1" data-id="1">Quote #1</strong>
+                    <br>
+                    <small class="subtitle is-4 blog-text" data-id="1">I’M BLESSED FOR A LOT OF REASONS. YOU CAN SEE THE BLESSINGS IN MY HOUSE, MY FAMILY, MY MUSICAL GARDEN, AND FLORIDA, BUT AN UNSEEN BLESSING MIGHT BE ONE OF THE MOST IMPORTANT—MY MEMORY. ANYONE WHO’S EVER WORKED WITH ME—AND THAT’S A LOT OF PEOPLE—WILL TELL YOU THE SAME THING. I REMEMBER. I WANT THIS TO BE PUT IN BOLD IN THE BOOK IN BIG LETTERS: I REMEMBER. MAJOR KEY. </small>
+                  </p>
+                </div>
+                <nav class="level is-mobile">
+                  <div class="level-left">
+                    <a class="level-item heart">
+                          <span class="icon is-small"><i class="fa fa-heart"></i></span>
+                    </a>
+                  
+                    <a class="level-item update-blog-btn" data-id="1">
+                          <span class="icon is-small"><i class="fa fa-refresh" aria-hidden="true"></i></span>
+                    </a>
+
+                    <a class="level-item delete-blog-btn" data-id="1">
+                          <span class="icon is-small"> <i class="fa fa-times-circle" aria-hidden="true"></i></span>
+                    </a>
+                  
+                  </div>
+                </nav>
+              </div>
+            </article>
+            <hr>
+             <br>
+            <article class="media">
+              <figure class="media-left">
+                <p class="image is-64x64">
+                  <img class = "blog-author-pic" src = "https://channelo.dstv.com/wp-content/uploads/2016/04/dj-khaled.jpg">
+                </p>
+              </figure>
+              <div class="media-content">
+                <div class="content eventsContent">
+                  <p>
+                    <strong class="blog-title title is-1" data-id="1">Quote #1</strong>
+                    <br>
+                    <small class="subtitle is-4 blog-text" data-id="1">I’M BLESSED FOR A LOT OF REASONS. YOU CAN SEE THE BLESSINGS IN MY HOUSE, MY FAMILY, MY MUSICAL GARDEN, AND FLORIDA, BUT AN UNSEEN BLESSING MIGHT BE ONE OF THE MOST IMPORTANT—MY MEMORY. ANYONE WHO’S EVER WORKED WITH ME—AND THAT’S A LOT OF PEOPLE—WILL TELL YOU THE SAME THING. I REMEMBER. I WANT THIS TO BE PUT IN BOLD IN THE BOOK IN BIG LETTERS: I REMEMBER. MAJOR KEY. </small>
+                  </p>
+                </div>
+                <nav class="level is-mobile">
+                  <div class="level-left">
+                    <a class="level-item heart">
+                          <span class="icon is-small"><i class="fa fa-heart"></i></span>
+                    </a>
+                  
+                    <a class="level-item update-blog-btn" data-id="1">
+                          <span class="icon is-small"><i class="fa fa-refresh" aria-hidden="true"></i></span>
+                    </a>
+
+                    <a class="level-item delete-blog-btn" data-id="1">
+                          <span class="icon is-small"> <i class="fa fa-times-circle" aria-hidden="true"></i></span>
+                    </a>
+                  
+                  </div>
+                </nav>
+              </div>
+            </article>
+            <hr>
+             <br>
+            <article class="media">
+              <figure class="media-left">
+                <p class="image is-64x64">
+                  <img class = "blog-author-pic" src = "https://channelo.dstv.com/wp-content/uploads/2016/04/dj-khaled.jpg">
+                </p>
+              </figure>
+              <div class="media-content">
+                <div class="content eventsContent">
+                  <p>
+                    <strong class="blog-title title is-1" data-id="1">Quote #1</strong>
+                    <br>
+                    <small class="subtitle is-4 blog-text" data-id="1">I’M BLESSED FOR A LOT OF REASONS. YOU CAN SEE THE BLESSINGS IN MY HOUSE, MY FAMILY, MY MUSICAL GARDEN, AND FLORIDA, BUT AN UNSEEN BLESSING MIGHT BE ONE OF THE MOST IMPORTANT—MY MEMORY. ANYONE WHO’S EVER WORKED WITH ME—AND THAT’S A LOT OF PEOPLE—WILL TELL YOU THE SAME THING. I REMEMBER. I WANT THIS TO BE PUT IN BOLD IN THE BOOK IN BIG LETTERS: I REMEMBER. MAJOR KEY. </small>
+                  </p>
+                </div>
+                <nav class="level is-mobile">
+                  <div class="level-left">
+                    <a class="level-item heart">
+                          <span class="icon is-small"><i class="fa fa-heart"></i></span>
+                    </a>
+                  
+                    <a class="level-item update-blog-btn" data-id="1">
+                          <span class="icon is-small"><i class="fa fa-refresh" aria-hidden="true"></i></span>
+                    </a>
+
+                    <a class="level-item delete-blog-btn" data-id="1">
+                          <span class="icon is-small"> <i class="fa fa-times-circle" aria-hidden="true"></i></span>
+                    </a>
+                  
+                  </div>
+                </nav>
+              </div>
+            </article>
         </div>
 
       </div>

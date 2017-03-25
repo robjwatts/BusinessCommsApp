@@ -20,14 +20,15 @@ $.getJSON('/token', function(data) {
     // Create a Video Client and connect to Twilio
     videoClient = new Twilio.Video.Client(data.token);
     //in the tutorial, this was getElementById "room-controls"
-    document.getElementByClassName('chatArea').style.display = 'block';
+    // $('#chatArea').style.display = 'block';
 
     // Bind button to join room
     //in the tutorial, this was getElementById "room-controls"
-    roomName = document.getElementByClassName('button is-success').value;
+    // roomName = document.getElementByClassName('button is-success').value;
 
     /////////////in the tutorial, this was getElementById "room-name"
-    roomName = document.getElementByClassName('input chatName').value;
+    roomName = $('.chatName').val;
+    console.log(roomName)
     if (roomName) {
         console.log("Joining room '" + roomName + "'...");
         ///////
@@ -41,25 +42,26 @@ $.getJSON('/token', function(data) {
     } else {
         alert('Please enter a room name.');
     }
-};
+});
 
 // Bind button to leave room
 //need a LEAVE ROOM button..//
 ///
 ///
 /////////////////////////////////////
-document.getElementById('button-leave').onclick = function() {
+// document.getElementById('button-leave').onclick = function() {
+    $( ".leaveChat" ).click(function() {
     console.log('Leaving room...');
     activeRoom.disconnect();
-};
-});
+    });
+
 
 // Successfully connected!
 function roomJoined(room) {
     activeRoom = room;
 
     console.log("Joined as '" + identity + "'");
-    document.getElementByClassName('button is-success').style.display = 'none';
+    document.getElementByClassName('submitChat').style.display = 'none';
 
     //need leave button
     document.getElementById('button-leave').style.display = 'inline';
@@ -103,14 +105,16 @@ function roomJoined(room) {
         document.getElementByClassName('button is-success').style.display = 'inline';
 
         ///need leave button
-        document.getElementById('button-leave').style.display = 'none';
+        // document.getElementById('button-leave').style.display = 'none';
+        document.getElementByClassName('leaveChat').style.display = 'none';
     });
 }
 
 //  Local video preview
 
 //need preview button
-document.getElementById('button-preview').onclick = function() {
+$("#previewVid").click(function() {
+    console.log("vide start")
     if (!previewMedia) {
         previewMedia = new Twilio.Video.LocalMedia();
         Twilio.Video.getUserMedia().then(
@@ -123,7 +127,7 @@ document.getElementById('button-preview').onclick = function() {
                 console.log('Unable to access Camera and Microphone');
             });
     }
-};
+});
 
 // // Activity log .. no need for this i don't think so im commenting it out. 
 // function log(message) {

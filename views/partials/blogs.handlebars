@@ -1,30 +1,46 @@
 {{#each blogs}}
+
 <div id="blog{{id}}">
 	<br>
-	<div class="blog-content">
-		<h1 class="blog-title">{{blogTitle}}</h1>
-		<div class="blog-text">{{blogText}}</div>
-	</div>
+		<article class="media">
+      <figure class="media-left">
+        <p class="image is-64x64">
+          <img class = "blog-author-pic" src = "{{User.profilePicUrl}}">
+        </p>
+      </figure>
+      <div class="media-content">
+        <div class="content eventsContent">
+          <p>
+            <strong class="blog-title title is-1" data-id="{{id}}">{{blogTitle}}</strong>
+            <br>
+            <small class="subtitle is-4 blog-text" data-id="{{id}}">{{blogText}}</small>
+          </p>
+        </div>
+        <nav class="level is-mobile">
+          <div class="level-left">
+            <a class="level-item heart">
+                  <span class="icon is-small"><i class="fa fa-heart"></i></span>
+            </a>
+          {{#compare User.id "==" ../current_user.id}}
+          
+            <a class="level-item update-blog-btn" data-id="{{id}}">
+                  <span class="icon is-small"><i class="fa fa-refresh" aria-hidden="true"></i></span>
+            </a>
 
-	<div class="blog-footer">
-		<img class = "blog-author-pic" src = "{{User.profilePicUrl}}">
-		<span class="blog-author-name">Authored By: {{User.name}}</span>
-		
-		<div class="controls">
-			<a class="btn like-btn">Like</a>
-		{{#compare User.id "==" ../current_user.id}}
-		
-			<a class="btn updateBtn" data-blogid="{{id}}" data-blogtitle="{{blogTitle}}" data-blogtext="{{blogText}}">Update</a>
-		
-		
-			<a class="btn deleteBtn" data-blogid="{{id}}">Delete</a>
-		
-		{{/compare}}
-		</div>
-	</div>
-<div>
+            <a class="level-item delete-blog-btn" data-id="{{id}}">
+                  <span class="icon is-small"> <i class="fa fa-times-circle" aria-hidden="true"></i></span>
+            </a>
+          
+          {{/compare}}
+          </div>
+        </nav>
+      </div>
+    </article>
+   </div
+    <hr>
 	{{/each}}
 	<div class="modal" id="updateBlog">
+
        	<div class="modal-background"></div>
        	<div class="modal-card">
          	<header class="modal-card-head">
