@@ -65,13 +65,12 @@
  		closeUpdate();
  	});
 
-  $('.updateBtn').each(function () {
+  $('.updateBtn').each(function() {
     var $this = $(this);
-    $this.on("click", function (e) {
- 	    e.preventDefault();
-      $("#updateId").val($(this).data("blogId"));
-  		$("#updateTitle").val($(this).data("blogTitle"));
-  		$("#updateText").val($(this).data("blogText"));
+    $this.on("click", function() {
+      $("#updateId").val($($this).data("blogId"));
+  		$("#updateTitle").val($($this).data("blogTitle"));
+  		$("#updateText").val($($this).data("blogText"));
     	$("#updateBlog").addClass("is-active");
     });
   });
@@ -84,7 +83,7 @@
     var $this = $(this);
     $this.on("click", function(e) {
       e.preventDefault();
-		  var currentBlog = $(this).data("id");
+		  var currentBlog = $($this).data("id");
 		  $.ajax({
 		  	method: "DELETE",
 		  	url: "/api/blogs/delete",
