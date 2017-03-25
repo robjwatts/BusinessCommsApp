@@ -1,27 +1,42 @@
 {{#each blogs}}
-
 	<br>
-	<div class="blog-content">
-		<h1 class="blog-title title is-1" data-id="{{id}}">{{blogTitle}}</h1>
-		<div class="blog-text" data-id="{{id}}"><h4 class="subtitle is-4">{{blogText}}</h4></div>
-	</div>
+		<article class="media">
+      <figure class="media-left">
+        <p class="image is-64x64">
+          <img class = "blog-author-pic" src = "{{User.profilePicUrl}}">
+        </p>
+      </figure>
+      <div class="media-content">
+        <div class="content eventsContent">
+          <p>
+            <strong class="blog-title title is-1" data-id="{{id}}">{{blogTitle}}</strong>
+            <br>
+            <small class="subtitle is-4 blog-text" data-id="{{id}}">{{blogText}}</small>
+          </p>
+        </div>
+        <nav class="level is-mobile">
+          <div class="level-left">
+            <a class="level-item heart">
+                  <span class="icon is-small"><i class="fa fa-heart"></i></span>
+            </a>
+          {{#compare User.id "==" ../current_user.id}}
+          
+            <a class="level-item update-blog-btn" data-id="{{id}}">
+                  <span class="icon is-small"><i class="fa fa-refresh" aria-hidden="true"></i></span>
+            </a>
 
-	<div class="blog-footer">
-		<img class = "blog-author-pic" src = "{{User.profilePicUrl}}">
-		<span id="blog-author-name">Authored By: {{User.name}}</span>
-		
-		<div id="controls">
-			<button class="like-btn">Like</button>
-		{{#compare User.id "==" ../current_user.id}}
-		
-			<button class="update-blog-btn" data-id="{{id}}">Update</button>
-		
-		
-			<button class="delete-blog-btn" data-id="{{id}}">Delete</button>
-		
-		{{/compare}}
-		</div>
-	</div>
+            <a class="level-item delete-blog-btn" data-id="{{id}}">
+                  <span class="icon is-small"> <i class="fa fa-times-circle" aria-hidden="true"></i></span>
+            </a>
+          
+          {{/compare}}
+          </div>
+        </nav>
+      </div>
+    </article>
+    <hr>
+
+
 
 	<div class="modal" id="updateBlog{{id}}">
        	<div class="modal-background"></div>
