@@ -68,7 +68,7 @@ function createJWT() {
 	}
 
 	var fs = require('fs');
-	var privateKey = fs.readFileSync('./server.key');
+	var privateKey = fs.readFileSync('server.key');
 
 	//get our private key to sign our JWT
 	var secret = process.env.PRIVATE_KEY;
