@@ -2,91 +2,96 @@
 
 	<br>
 	<div class="blog-content">
-		<h1 class="blog-title" data-id="{{id}}">{{blogTitle}}</h1>
-		<div class="blog-text" data-id="{{id}}">{{blogText}}</div>
+		<h1 class="blog-title">{{blogTitle}}</h1>
+		<div class="blog-text">{{blogText}}</div>
 	</div>
 
 	<div class="blog-footer">
 		<img class = "blog-author-pic" src = "{{User.profilePicUrl}}">
-		<span id="blog-author-name">Authored By: {{User.name}}</span>
+		<span class="blog-author-name">Authored By: {{User.name}}</span>
 		
-		<div id="controls">
-			<button class="like-btn">Like</button>
+		<div class="controls">
+			<a class="btn like-btn">Like</a>
 		{{#compare User.id "==" ../current_user.id}}
 		
-			<button class="update-blog-btn" data-id="{{id}}">Update</button>
+			<a class="btn updateBtn" data-blogId="{{id}}" data-blogTitle="{{blogTitle}}" data-blogText""{{blogText}}>Update</a>
 		
 		
-			<button class="delete-blog-btn" data-id="{{id}}">Delete</button>
+			<a class="btn deleteBtn" data-id="{{id}}">Delete</a>
 		
 		{{/compare}}
 		</div>
 	</div>
 
-	<div class="modal" id="updateBlog{{id}}">
+	{{/each}}
+	<div class="modal" id="updateBlog">
        	<div class="modal-background"></div>
        	<div class="modal-card">
          	<header class="modal-card-head">
            		<p class="modal-card-title">Update Blog</p>
-           		<button class="delete" data-id="{{id}}"></button>
+           		<button class="delete"></button>
          	</header>
          	<section class="modal-card-body">
-           		<form method="post" action='/api/blogs/update?_method=PUT' id="updateForm{{id}}">
-           	 		<input class="input" type="text" style="display:none" value="{{id}}" name="id">
+           		<form method="POST" action='/api/blogs/update?_method=PUT' id="updateForm">
+           	 		<input class="input" type="text" style="display:none" name="id" id="updateId">
 
              		<div class="field">
                			<label class="label">Blog Title</label>
                			<p class="control">
-                 			<input class="input" type="text" placeholder="title" id='blog-name' name="blog_title" value={{blogTitle}}>
+                 			<input class="input" type="text" id='updateTitle' name="blog_title">
                			</p>
              		</div>
 
              		<div class="field">
                			<label class="label">Description</label>
                			<p class="control">
-                 			<textarea class="textarea"  placeholder="Blog Description" id='blogDescription' name='blog_text' value={{blogText}}></textarea>
+                 			<textarea class="textarea"  id='updateText' name='blog_text'></textarea>
                			</p>
              		</div>        
            		</form>
          	</section>
         	<footer class="modal-card-foot">
-           		<a class="button is-primary submit-update" data-id={{id}}>Submit</a>
+           		<a class="button is-primary submitUpdate">Submit</a>
         	</footer>
        	</div>
     </div>
 
-{{/each}}
+<script>
 
-<script type="text/javascript">
-	
- 	$('.update-blog-btn').click(openUpdate);
- 	$(".submit-update, .delete").click(closeUpdate);
- 	$(".delete-blog-btn").click(deleteBlog);
+ 	$(".delete").click(closeUpdate);
 
- 	$(".submit-update").click(function(){
- 		var id = $(this).attr("data-id");
- 		$("#updateForm" + id).submit();
+ 	$(".submitUpdate").click(function(){
+ 		$("#updateForm").submit();
+ 		closeUpdate();
  	});
 
+  $('.updateBtn').each(function () {
+    var $this = $(this);
+    $this.on("click", function (e) {
+ 	    e.preventDefault();
+      $("input#updateId").val($(this).data("blogId"));
+  		$("input#updateTitle").val($(this).data("blogTitle"));
+  		$("textarea#updateText").val($(this).data("blogText"));
+    	$("#updateBlog").addClass("is-active");
+    });
+  });
 
-  	function openUpdate() {
-  		var id = $(this).data("id");
-  		$("#updateBlog"+id).addClass("is-active");
-  	}
-
-  	function closeUpdate() {
-  		var id = $(this).data("id");
-    	$("#updateBlog"+id).removeClass("is-active");
+  function closeUpdate() {
+    	$("#updateBlog").removeClass("is-active");
 	}
 
-	// function deleteBlog() {
-	// 	var currentBlog = $(this).data("id");
-	// 	$.ajax({
-	// 		method: "DELETE",
-	// 		url: "/api/blogs/delete",
-	// 		data: currentBlog
-	// 	}).done(function(){});
+	$(".deleteBtn").each(function () {
+    var $this = $(this);
+    $this.on("click", function(e) {
+      e.preventDefault();
+		  var currentBlog = $(this).data("id");
+		  $.ajax({
+		  	method: "DELETE",
+		  	url: "/api/blogs/delete",
+		  	data: currentBlog
+		  }).done(function(){});
 
-	// }
+	 });
+  });
 
 </script>
