@@ -2,7 +2,7 @@
 const jwt = require('jsonwebtoken');
 const request = require("request");
 const Drive = require("./drive.js");
-
+const path = require('path');
 //will create JWT to send to GOOGLE and receive back access token
 function createJWT() {
 
@@ -68,7 +68,8 @@ function createJWT() {
 	}
 
 	var fs = require('fs');
-	var privateKey = fs.readFileSync('server.key');
+	var privateKey = fs.readFileSync(path.join(__dirname, 'server.key'));
+
 
 	//get our private key to sign our JWT
 	var secret = process.env.PRIVATE_KEY;
