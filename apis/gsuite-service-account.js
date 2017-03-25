@@ -67,13 +67,16 @@ function createJWT() {
 	  "aud":"https://www.googleapis.com/oauth2/v4/token"
 	}
 
+	var fs = require('fs');
+	var privateKey = fs.readFileSync('./server.key');
+
 	//get our private key to sign our JWT
 	var secret = process.env.PRIVATE_KEY;
 	console.log('secret', secret);
 	console.log('payload', payload);
 
 	//sign() is jsonwebtoken function to encrypt to base64 header, claim set and secret
-	var jsonWebToken = jwt.sign(payload, secret, { algorithm: 'RS256', expiresIn: '1h' });
+	var jsonWebToken = jwt.sign(payload, privateKey, { algorithm: 'RS256', expiresIn: '1h' });
 
 	//make a post request to Google to retrieve access token
 	getAccessToken(jsonWebToken).then((data)=>{
