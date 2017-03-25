@@ -4,7 +4,10 @@ module.exports = function(sequelize, DataTypes) {
     userId: DataTypes.STRING,
     title: DataTypes.STRING,
     description: DataTypes.STRING,
-    timeRange: DataTypes.STRING,
+    startDate: DataTypes.STRING,
+    endDate: DataTypes.STRING,
+    startTime: DataTypes.STRING,
+    endTime: DataTypes.STRING,
     location: DataTypes.STRING
   }, {
     classMethods: {

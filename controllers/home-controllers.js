@@ -45,7 +45,7 @@ module.exports = function(app, hbs) {
 					
 				}
 
-				// console.log(blogData)
+				console.log(eventData)
 
 				var helpers={
 			        compare: function(id1, operator, id2, options){
@@ -94,11 +94,14 @@ module.exports = function(app, hbs) {
         var event = req.body;
         // Then add the blog to the database using sequelize
         db.UpcomingEvents.create({
-          userID: req.user.id,
-          title: event.title,
-          description: event.description,
-          timeRange: event.timeRange,
-          location: event.location
+          userId: req.user.id,
+          title: event.event_name,
+          description: event.event_description,
+          startDate: event.start_date,
+          endDate: event.end_date,
+          startTime: event.start_time,
+          endTime: event.end_time,
+          location: event.event_location
         }).then((success)=>{
         	res.redirect("/home");
     	})

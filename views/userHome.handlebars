@@ -36,7 +36,7 @@
         </div>
         <br>
 
-        {{!-- {{> events}} --}}
+        {{> events}}
 
       </div>
 
@@ -50,7 +50,7 @@
           </header>
           <section class="modal-card-body">
 
-            <form method="POST" action='/api/events/new'>
+            <form method="POST" action='/api/events/new' id="eventForm">
 
               <div class="field">
                 <label class="label">Event Name</label>
@@ -208,6 +208,10 @@
   
  $(".submitBlog").click(function(){
     $("#blogForm").submit();
+ });
+
+ $(".submitEvent").click(function(){
+    $("#eventForm").submit();
  });
 
 </script>
